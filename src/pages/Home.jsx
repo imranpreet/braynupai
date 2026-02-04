@@ -6,88 +6,238 @@ function Home() {
     <div className="home">
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-bg-animation"></div>
+        <div className="container">
+          <div className="hero-layout">
+            <div className="hero-content">
+              <div className="hero-badge">
+                <span className="badge-icon">🎓</span>
+                <span>ONLINE LEARNING COURSE</span>
+              </div>
+              
+              <h1 className="hero-title">
+                Online Education<br />
+                <span className="title-highlight">Feels Like Real Classroom</span>
+              </h1>
 
-        {/* Floating Puzzle Boxes - Right Side */}
-        <div className="floating-boxes right-boxes">
-          <div className="puzzle-box box-5" data-aos="fade-left">
-            <div className="box-icon">📊</div>
-            <div className="box-content">
-              <h4>Real-Time</h4>
-              <p>Analytics</p>
+              <div className="hero-features-list">
+                <div className="feature-item">
+                  <span className="check-icon">✓</span>
+                  <span>Get Certified</span>
+                </div>
+                <div className="feature-item">
+                  <span className="check-icon">✓</span>
+                  <span>Daily Lectures 50+</span>
+                </div>
+                <div className="feature-item">
+                  <span className="check-icon">✓</span>
+                  <span>Course Life</span>
+                </div>
+              </div>
+
+              <div className="hero-buttons">
+                <button className="cta-btn cta-primary">Get Started</button>
+                <button className="cta-btn cta-secondary">Learn More ▶</button>
+              </div>
             </div>
-          </div>
-          <div className="puzzle-box box-6" data-aos="fade-left" data-aos-delay="100">
-            <div className="box-icon">🎯</div>
-            <div className="box-content">
-              <h4>Job Ready</h4>
-              <p>Skills</p>
-            </div>
-          </div>
-          <div className="puzzle-box box-7" data-aos="fade-left" data-aos-delay="200">
-            <div className="box-icon">🏅</div>
-            <div className="box-content">
-              <h4>Certified</h4>
-              <p>Programs</p>
-            </div>
-          </div>
-          <div className="puzzle-box box-8" data-aos="fade-left" data-aos-delay="300">
-            <div className="box-icon">💼</div>
-            <div className="box-content">
-              <h4>Placement</h4>
-              <p>Support</p>
+
+            <div className="hero-image-section">
+              <div className="hero-circle-bg"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=700&fit=crop" 
+                alt="Student Learning" 
+                className="hero-student-image"
+              />
+              
+              <div className="stat-badge badge-students">
+                <div className="stat-icon">👥</div>
+                <div className="stat-content">
+                  <div className="stat-number">16500+</div>
+                  <div className="stat-label">Total Students</div>
+                </div>
+              </div>
+
+              <div className="stat-badge badge-courses">
+                <div className="stat-icon">📚</div>
+                <div className="stat-content">
+                  <div className="stat-number">7500+</div>
+                  <div className="stat-label">Total Courses</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        
-        <div className="container hero-content">
-          <div className="hero-badge">
-            <span className="badge-icon">🚀</span>
-            <span>Welcome to the Future of AI Education</span>
+      </section>
+
+      {/* Quick Features Icons */}
+      <section className="quick-features">
+        <div className="container">
+          <div className="features-row">
+            <div className="feature-box">
+              <div className="feature-icon-circle">📖</div>
+              <div className="feature-text">300+ Online Courses</div>
+            </div>
+            <div className="feature-box">
+              <div className="feature-icon-circle">🎯</div>
+              <div className="feature-text">Lifetime Access</div>
+            </div>
+            <div className="feature-box">
+              <div className="feature-icon-circle">💰</div>
+              <div className="feature-text">Value For Money</div>
+            </div>
+            <div className="feature-box">
+              <div className="feature-icon-circle">🤝</div>
+              <div className="feature-text">Lifetime Support</div>
+            </div>
+            <div className="feature-box">
+              <div className="feature-icon-circle">👥</div>
+              <div className="feature-text">Community Support</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section className="mission-section">
+        <div className="container">
+          <div className="mission-layout">
+            <div className="mission-left">
+              <div className="mission-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop" alt="Students learning together" className="mission-image" />
+                <div className="mission-play-button">
+                  <div className="play-icon">▶</div>
+                </div>
+              </div>
+            </div>
+            <div className="mission-right">
+              <div className="section-label">GET TO KNOW ABOUT US</div>
+              <h2 className="section-title">Dive into our Online Courses<br />and Ignite Your Learning!</h2>
+              <p className="section-description">
+                BraynupAI is a revolutionary AI-based IT training platform designed to deliver 
+                future-ready education. We specialize in cutting-edge programs that transform careers.
+              </p>
+              <ul className="mission-features">
+                <li>
+                  <span className="check-mark">✓</span>
+                  Community support to engineer your skills successfully
+                </li>
+                <li>
+                  <span className="check-mark">✓</span>
+                  Expert faculty from IIT 30+ years for best guidance
+                </li>
+                <li>
+                  <span className="check-mark">✓</span>
+                  Learn the language from top notch programs every week
+                </li>
+              </ul>
+              <button className="cta-btn cta-primary">Read More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Courses Section */}
+      <section className="popular-courses-section">`
+        <div className="container">
+          <div className="section-header-center">
+            <div className="section-label">POPULAR COURSES</div>
+            <h2 className="section-title">Our Popular Online Courses</h2>
           </div>
           
-          <h1 className="hero-title">
-            Master AI & Transform<br />
-            <span className="gradient-text">Your Career Forever</span>
-          </h1>
-          
-          <p className="hero-subtitle">
-            Join 50,000+ learners worldwide mastering Digital Marketing with AI 
-            and Full Stack Engineering with AI
-          </p>
-          
-          <div className="hero-cta">
-            <button className="cta-btn cta-primary">
-              Start Free Trial
-              <span className="btn-arrow">→</span>
-            </button>
-            <button className="cta-btn cta-secondary">
-              Explore Courses
-              <span className="btn-arrow">→</span>
-            </button>
+          <div className="course-categories">
+            <button className="category-btn active">Digital Marketing</button>
+            <button className="category-btn">UI/UX Design</button>
+            <button className="category-btn">Graphic Design</button>
+            <button className="category-btn">Web Development</button>
           </div>
           
-          <div className="hero-stats">
-            <div className="stat-item">
-              <div className="stat-icon">👨‍🎓</div>
-              <div className="stat-number">50K+</div>
-              <div className="stat-label">Active Students</div>
+          <div className="courses-grid">
+            <div className="course-card">
+              <div className="course-image-container">
+                <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=400&h=250&fit=crop" alt="Course" className="course-image" />
+                <div className="course-badge badge-red">BESTSELLER</div>
+              </div>
+              <div className="course-content">
+                <div className="course-rating">
+                  <span className="stars">⭐⭐⭐⭐⭐</span>
+                  <span className="rating-number">(5.0)</span>
+                </div>
+                <h3 className="course-title">Learn Figma – UI/UX Design Essential Training</h3>
+                <div className="course-footer">
+                  <div className="course-author">
+                    <div className="author-avatar">K</div>
+                    <span>Kevin Perry</span>
+                  </div>
+                  <div className="course-price">FREE</div>
+                </div>
+              </div>
             </div>
-            <div className="stat-item">
-              <div className="stat-icon">🎯</div>
-              <div className="stat-number">95%</div>
-              <div className="stat-label">Job Placement</div>
+            
+            <div className="course-card">
+              <div className="course-image-container">
+                <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=250&fit=crop" alt="Course" className="course-image" />
+                <div className="course-badge badge-red">HOT</div>
+              </div>
+              <div className="course-content">
+                <div className="course-rating">
+                  <span className="stars">⭐⭐⭐⭐⭐</span>
+                  <span className="rating-number">(4.9)</span>
+                </div>
+                <h3 className="course-title">Education Software and PHP and JS System Script</h3>
+                <div className="course-footer">
+                  <div className="course-author">
+                    <div className="author-avatar">M</div>
+                    <span>Max Alexa</span>
+                  </div>
+                  <div className="course-price">FREE</div>
+                </div>
+              </div>
             </div>
-            <div className="stat-item">
-              <div className="stat-icon">⭐</div>
-              <div className="stat-number">4.9/5</div>
-              <div className="stat-label">Student Rating</div>
+            
+            <div className="course-card">
+              <div className="course-image-container">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=250&fit=crop" alt="Course" className="course-image" />
+                <div className="course-badge badge-red">NEW</div>
+              </div>
+              <div className="course-content">
+                <div className="course-rating">
+                  <span className="stars">⭐⭐⭐⭐⭐</span>
+                  <span className="rating-number">(5.0)</span>
+                </div>
+                <h3 className="course-title">IT Statistics Data Science and Business Analysis</h3>
+                <div className="course-footer">
+                  <div className="course-author">
+                    <div className="author-avatar">J</div>
+                    <span>Janet More</span>
+                  </div>
+                  <div className="course-price">FREE</div>
+                </div>
+              </div>
             </div>
-            <div className="stat-item">
-              <div className="stat-icon">🏆</div>
-              <div className="stat-number">10K+</div>
-              <div className="stat-label">Success Stories</div>
+            
+            <div className="course-card">
+              <div className="course-image-container">
+                <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?w=400&h=250&fit=crop" alt="Course" className="course-image" />
+                <div className="course-badge badge-red">TRENDING</div>
+              </div>
+              <div className="course-content">
+                <div className="course-rating">
+                  <span className="stars">⭐⭐⭐⭐⭐</span>
+                  <span className="rating-number">(4.8)</span>
+                </div>
+                <h3 className="course-title">Advanced Android 12 & Kotlin Development Course</h3>
+                <div className="course-footer">
+                  <div className="course-author">
+                    <div className="author-avatar">R</div>
+                    <span>Rosy Adams</span>
+                  </div>
+                  <div className="course-price">FREE</div>
+                </div>
+              </div>
             </div>
+          </div>
+          
+          <div className="view-all-section">
+            <button className="cta-btn cta-primary">View All Courses</button>
           </div>
         </div>
       </section>
@@ -95,31 +245,47 @@ function Home() {
       {/* About Section */}
       <section className="about-section">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">About BraynupAI</h2>
-            <p className="section-subtitle">
-              World's Leading Platform for AI-Powered Education
-            </p>
-          </div>
-          
-          <div className="about-content">
-            <div className="about-text">
-              <h3>Empowering Global Learners</h3>
-              <p>
+          <div className="about-layout">
+            <div className="about-content">
+              <div className="section-label">ABOUT US</div>
+              <h2 className="section-title">
+                Empowering <span className="highlight-text">50,000+ Learners</span><br />
+                Across 120+ Countries
+              </h2>
+              <p className="about-description">
                 BraynupAI is a revolutionary AI-based IT training platform designed to deliver 
-                future-ready education. We specialize in two cutting-edge programs:
+                future-ready education. We specialize in cutting-edge programs that transform careers 
+                through innovative AI-powered learning experiences.
               </p>
-              <ul className="about-features">
-                <li>🎯 Digital Marketing with AI - Master the art of AI-powered marketing</li>
-                <li>💻 Full Stack Engineering with AI - Build intelligent web applications</li>
-                <li>🌍 Global Recognition - Industry-aligned certifications</li>
-                <li>📈 Career Transformation - 150% average salary increase</li>
-              </ul>
+              <div className="about-stats">
+                <div className="stat-item">
+                  <div className="stat-number">50K+</div>
+                  <div className="stat-label">Active Students</div>
+                </div>
+                <div className="stat-item">
+                  <div className="stat-number">95%</div>
+                  <div className="stat-label">Placement Rate</div>
+                </div>
+                <div className="stat-item">
+                  <div className="stat-number">120+</div>
+                  <div className="stat-label">Countries</div>
+                </div>
+                <div className="stat-item">
+                  <div className="stat-number">150%</div>
+                  <div className="stat-label">Avg. Salary Hike</div>
+                </div>
+              </div>
             </div>
-            <div className="about-image">
-              <div className="image-placeholder">
-                <span className="placeholder-icon">🧠</span>
-                <p>AI Education Excellence</p>
+            <div className="about-video">
+              <div className="video-wrapper">
+                <iframe
+                  src="https://www.youtube.com/embed/JMUxmLyrhSk"
+                  title="BraynupAI Education"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+                <div className="video-overlay"></div>
               </div>
             </div>
           </div>
@@ -129,271 +295,175 @@ function Home() {
       {/* Why Choose Us */}
       <section className="why-choose-section">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Why Choose BraynupAI?</h2>
-            <p className="section-subtitle">
-              10 Reasons to Start Your AI Journey With Us
-            </p>
+          <div className="section-header-center">
+            <div className="section-label">WHY CHOOSE US</div>
+            <h2 className="section-title">10 Reasons to Start Your <span className="highlight-text">AI Journey</span> With Us</h2>
           </div>
           
-          <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon">🎓</div>
+          <div className="why-grid">
+            <div className="why-card">
+              <div className="why-icon">🎓</div>
               <h3>Expert Faculty</h3>
               <p>Learn from industry professionals with 10+ years of AI experience</p>
             </div>
-            <div className="feature-card">
-              <div className="feature-icon">💼</div>
+            <div className="why-card">
+              <div className="why-icon">💼</div>
               <h3>Job Guarantee</h3>
               <p>95% placement rate with top companies like Google, Microsoft, Amazon</p>
             </div>
-            <div className="feature-card">
-              <div className="feature-icon">🚀</div>
+            <div className="why-card">
+              <div className="why-icon">🚀</div>
               <h3>Hands-On Projects</h3>
-              <p>Build 50+ real-world AI projects and deploy to production</p>
+              <p>Build real-world AI projects and deploy to production</p>
             </div>
-            <div className="feature-card">
-              <div className="feature-icon">🌐</div>
+            <div className="why-card">
+              <div className="why-icon">🌐</div>
               <h3>Global Network</h3>
               <p>Join 50,000+ learners from 120+ countries worldwide</p>
             </div>
-            <div className="feature-card">
-              <div className="feature-icon">⏰</div>
+            <div className="why-card">
+              <div className="why-icon">⏰</div>
               <h3>Flexible Learning</h3>
               <p>Self-paced courses with lifetime access and 24/7 support</p>
             </div>
-            <div className="feature-card">
-              <div className="feature-icon">🏅</div>
+            <div className="why-card">
+              <div className="why-icon">🏅</div>
               <h3>Certifications</h3>
-              <p>Industry-recognized certificates verified by blockchain technology</p>
+              <p>Industry-recognized certificates verified by blockchain</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Highlighted Courses */}
-      <section className="courses-highlight-section">
+      {/* Highlighted Programs */}
+      <section className="programs-section">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Our Flagship Programs</h2>
-            <p className="section-subtitle">
-              Transform Your Career with Industry-Leading AI Courses
-            </p>
+          <div className="section-header-center">
+            <div className="section-label">OUR PROGRAMS</div>
+            <h2 className="section-title">Our <span className="highlight-text">Flagship Programs</span></h2>
+            <p className="section-description">Transform Your Career with Industry-Leading AI Courses</p>
           </div>
           
-          <div className="courses-grid">
-            {/* Course Card 1 */}
-            <div className="course-card">
-              <div className="course-image">
-                <img src="https://via.placeholder.com/400x200/1a1a1a/e63946?text=BraynupAI+Campus" alt="Campus" />
-                <div className="course-badge-top">BraynupAI</div>
-              </div>
-              <div className="course-content">
-                <h3 className="course-title">Digital Marketing with AI & Analytics</h3>
-                <div className="course-meta">
-                  <span className="course-duration">⏱ 06 Months</span>
-                  <span className="course-mode">💻 Online</span>
-                </div>
-                <p className="course-date">Batch Starts on <strong>13 Jun 2026</strong></p>
-              </div>
+          <div className="programs-grid">
+            <div className="program-card">
+              <div className="program-badge">🔥 Trending</div>
+              <div className="program-icon">🎯</div>
+              <h3>Digital Marketing with AI</h3>
+              <p>Master AI-powered marketing strategies and analytics</p>
+              <ul className="program-features">
+                <li>✓ 6 Months Duration</li>
+                <li>✓ 50+ Live Projects</li>
+                <li>✓ Job Guarantee</li>
+              </ul>
+              <button className="program-btn">Learn More →</button>
             </div>
 
-            {/* Course Card 2 */}
-            <div className="course-card">
-              <div className="course-image">
-                <img src="https://via.placeholder.com/400x200/1a1a1a/e63946?text=AI+Technology" alt="AI Tech" />
-                <div className="course-badge-top">BraynupAI</div>
-              </div>
-              <div className="course-content">
-                <h3 className="course-title">Full Stack Engineering with AI</h3>
-                <div className="course-meta">
-                  <span className="course-duration">⏱ 06 Months</span>
-                  <span className="course-mode">💻 Online</span>
-                </div>
-                <p className="course-date">Qualifier Test Date <strong>08 Feb 2026</strong></p>
-              </div>
+            <div className="program-card featured">
+              <div className="program-badge special">⭐ Most Popular</div>
+              <div className="program-icon">💻</div>
+              <h3>Full Stack Engineering with AI</h3>
+              <p>Build intelligent web applications with AI integration</p>
+              <ul className="program-features">
+                <li>✓ 6 Months Duration</li>
+                <li>✓ MERN + AI Stack</li>
+                <li>✓ 95% Placement</li>
+              </ul>
+              <button className="program-btn primary">Enroll Now →</button>
             </div>
 
-            {/* Course Card 3 */}
-            <div className="course-card">
-              <div className="course-image">
-                <img src="https://via.placeholder.com/400x200/1a1a1a/e63946?text=Modern+Campus" alt="Campus Building" />
-                <div className="course-badge-top">IIM Mumbai</div>
-              </div>
-              <div className="course-content">
-                <h3 className="course-title">Advanced Digital Marketing & Analytics</h3>
-                <div className="course-meta">
-                  <span className="course-duration">⏱ 06 Months</span>
-                  <span className="course-mode">💻 Online</span>
-                </div>
-                <p className="course-date">Qualifier Test Date <strong>08 Feb 2026</strong></p>
-              </div>
-            </div>
-
-            {/* Course Card 4 */}
-            <div className="course-card">
-              <div className="course-image">
-                <img src="https://via.placeholder.com/400x200/1a1a1a/e63946?text=AI+Institute" alt="Institute" />
-                <div className="course-badge-top">IIM Rohtak</div>
-              </div>
-              <div className="course-content">
-                <h3 className="course-title">AI-Powered Product Management & Growth Marketing</h3>
-                <div className="course-meta">
-                  <span className="course-duration">⏱ 5 Months</span>
-                  <span className="course-mode">💻 Online</span>
-                </div>
-                <p className="course-date">Qualifier Test Date <strong>08 Feb 2026</strong></p>
-              </div>
-            </div>
-
-            {/* Course Card 5 - Featured */}
-            <div className="course-card featured">
-              <div className="course-image">
-                <img src="https://via.placeholder.com/400x200/e63946/ffffff?text=AI+%26+ML+Program" alt="AI ML" />
-                <div className="course-badge-top special">Featured</div>
-              </div>
-              <div className="course-content">
-                <h3 className="course-title">Artificial Intelligence and Machine Learning</h3>
-                <div className="course-meta">
-                  <span className="course-duration">⏱ 06 Months</span>
-                  <span className="course-mode">💻 Online</span>
-                </div>
-                <button className="learn-more-btn">learn more →</button>
-              </div>
-            </div>
-
-            {/* Course Card 6 */}
-            <div className="course-card">
-              <div className="course-image">
-                <img src="https://via.placeholder.com/400x200/1a1a1a/e63946?text=Tech+Hub" alt="Tech Hub" />
-                <div className="course-badge-top">IHUB Divyasampark</div>
-              </div>
-              <div className="course-content">
-                <h3 className="course-title">Certification Program in Agentic Systems and Design</h3>
-                <div className="course-meta">
-                  <span className="course-duration">⏱ 06 Months</span>
-                  <span className="course-mode">💻 Online</span>
-                </div>
-                <p className="course-date">Qualifier Test Date <strong>08 Feb 2026</strong></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partner Logos */}
-      <section className="partners-section">
-        <div className="container">
-          <h2 className="section-title">Trusted by Industry Leaders</h2>
-          <p className="partners-subtitle">Our students get hired by top global companies</p>
-          <div className="partners-slider">
-            <div className="partner-logo-wrapper">
-              <div className="partner-logo google">
-                <div className="logo-symbol google-symbol">G</div>
-                <div className="logo-name">Google</div>
-              </div>
-            </div>
-            <div className="partner-logo-wrapper">
-              <div className="partner-logo microsoft">
-                <div className="logo-symbol microsoft-symbol">
-                  <div className="ms-grid">
-                    <span className="ms-box"></span>
-                    <span className="ms-box"></span>
-                    <span className="ms-box"></span>
-                    <span className="ms-box"></span>
-                  </div>
-                </div>
-                <div className="logo-name">Microsoft</div>
-              </div>
-            </div>
-            <div className="partner-logo-wrapper">
-              <div className="partner-logo amazon">
-                <div className="logo-symbol amazon-symbol">
-                  <span className="amazon-a">a</span>
-                  <span className="amazon-smile"></span>
-                </div>
-                <div className="logo-name">Amazon</div>
-              </div>
-            </div>
-            <div className="partner-logo-wrapper">
-              <div className="partner-logo meta">
-                <div className="logo-symbol meta-symbol">∞</div>
-                <div className="logo-name">Meta</div>
-              </div>
-            </div>
-            <div className="partner-logo-wrapper">
-              <div className="partner-logo ibm">
-                <div className="logo-symbol ibm-symbol">
-                  <div className="ibm-stripes">
-                    <span></span><span></span><span></span>
-                    <span></span><span></span><span></span>
-                    <span></span><span></span>
-                  </div>
-                </div>
-                <div className="logo-name">IBM</div>
-              </div>
-            </div>
-            <div className="partner-logo-wrapper">
-              <div className="partner-logo tesla">
-                <div className="logo-symbol tesla-symbol">T</div>
-                <div className="logo-name">TESLA</div>
-              </div>
+            <div className="program-card">
+              <div className="program-badge">🚀 New</div>
+              <div className="program-icon">🤖</div>
+              <h3>AI & Machine Learning</h3>
+              <p>Deep dive into artificial intelligence and ML algorithms</p>
+              <ul className="program-features">
+                <li>✓ 6 Months Duration</li>
+                <li>✓ Advanced AI Projects</li>
+                <li>✓ Industry Certification</li>
+              </ul>
+              <button className="program-btn">Learn More →</button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Student Reviews */}
-      <section className="reviews-section">
+      <section className="testimonials-section">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Student Success Stories</h2>
-            <p className="section-subtitle">
-              Hear from our amazing alumni who transformed their careers
-            </p>
+          <div className="section-header-center">
+            <div className="section-label">TESTIMONIALS</div>
+            <h2 className="section-title">Student <span className="highlight-text">Success Stories</span></h2>
+            <p className="section-description">Hear from our amazing alumni who transformed their careers</p>
           </div>
           
-          <div className="reviews-grid">
-            <div className="review-card">
-              <div className="review-stars">⭐⭐⭐⭐⭐</div>
-              <p className="review-text">
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <div className="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p className="testimonial-text">
                 "BraynupAI changed my life! I went from zero coding to landing a $120K job at Google in just 6 months. The AI curriculum is outstanding!"
               </p>
-              <div className="review-author">
+              <div className="testimonial-author">
                 <div className="author-avatar">RS</div>
-                <div className="author-info">
+                <div className="author-details">
                   <h4>Rahul Sharma</h4>
                   <p>Full Stack Engineer at Google</p>
                 </div>
               </div>
             </div>
 
-            <div className="review-card">
-              <div className="review-stars">⭐⭐⭐⭐⭐</div>
-              <p className="review-text">
+            <div className="testimonial-card featured">
+              <div className="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p className="testimonial-text">
                 "The Digital Marketing with AI course helped me 3x my client revenue. The hands-on projects and mentor support are incredible!"
               </p>
-              <div className="review-author">
+              <div className="testimonial-author">
                 <div className="author-avatar">PK</div>
-                <div className="author-info">
+                <div className="author-details">
                   <h4>Priya Kapoor</h4>
                   <p>Digital Marketing Manager at Amazon</p>
                 </div>
               </div>
             </div>
 
-            <div className="review-card">
-              <div className="review-stars">⭐⭐⭐⭐⭐</div>
-              <p className="review-text">
+            <div className="testimonial-card">
+              <div className="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p className="testimonial-text">
                 "Best investment in my career! The AI integration in Full Stack course is cutting-edge. Now working at Microsoft!"
               </p>
-              <div className="review-author">
+              <div className="testimonial-author">
                 <div className="author-avatar">AJ</div>
-                <div className="author-info">
+                <div className="author-details">
                   <h4>Amit Joshi</h4>
-                  <p>Senior Developer at Microsoft</p>
+                  <p>Software Engineer at Microsoft</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="partners-section">
+        <div className="container">
+          <h3 className="partners-title">Trusted by Industry Leaders</h3>
+          <div className="partners-grid">
+            <div className="partner-item">
+              <div className="partner-logo">Google</div>
+            </div>
+            <div className="partner-item">
+              <div className="partner-logo">Microsoft</div>
+            </div>
+            <div className="partner-item">
+              <div className="partner-logo">Amazon</div>
+            </div>
+            <div className="partner-item">
+              <div className="partner-logo">Meta</div>
+            </div>
+            <div className="partner-item">
+              <div className="partner-logo">Netflix</div>
+            </div>
+            <div className="partner-item">
+              <div className="partner-logo">Tesla</div>
             </div>
           </div>
         </div>
@@ -402,14 +472,13 @@ function Home() {
       {/* FAQ Section */}
       <section className="faq-section">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Frequently Asked Questions</h2>
-            <p className="section-subtitle">
-              Everything you need to know about BraynupAI
-            </p>
+          <div className="section-header-center">
+            <div className="section-label">FAQ</div>
+            <h2 className="section-title">Frequently Asked <span className="highlight-text">Questions</span></h2>
+            <p className="section-description">Everything you need to know about BraynupAI</p>
           </div>
           
-          <div className="faq-grid">
+          <div className="faq-list">
             <div className="faq-item">
               <h3>❓ Who can join these courses?</h3>
               <p>UG & PG students, working professionals, entrepreneurs, and anyone interested in AI-powered IT skills. No prior experience required for beginner tracks.</p>
@@ -430,23 +499,21 @@ function Home() {
         </div>
       </section>
 
-      {/* Enroll CTA Section */}
-      <section className="enroll-cta-section">
+      {/* Final CTA Section */}
+      <section className="final-cta-section">
         <div className="container">
-          <div className="cta-content">
+          <div className="cta-box">
             <h2>Ready to Transform Your Career?</h2>
             <p>Join 50,000+ students who are building their AI-powered future</p>
             <div className="cta-buttons">
-              <button className="cta-btn cta-large cta-primary">
+              <button className="cta-btn cta-primary">
                 Enroll Now - Get 50% Off
               </button>
-              <button className="cta-btn cta-large cta-secondary">
+              <button className="cta-btn cta-secondary">
                 Schedule Free Counseling
               </button>
             </div>
-            <p className="cta-note">
-              🔥 Limited Time Offer - Only 50 seats left this month!
-            </p>
+            <p className="cta-urgency">⏰ Limited seats available - Batch starts in 3 days!</p>
           </div>
         </div>
       </section>

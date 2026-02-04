@@ -1,24 +1,41 @@
 .about-page {
   min-height: 100vh;
+  background: #e63946;
+}
+
+.page-hero {
+  padding: 6rem 0 4rem;
+  background: #c1121f;
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.page-hero p {
+  font-size: 1.4rem;
+  color: #ffffff;
 }
 
 .about-content-section {
   padding: 4rem 0;
-  background: var(--bg-darker);
+  background: #e63946;
 }
 
 .about-content-section h2 {
   font-size: 2.5rem;
   margin: 3rem 0 1.5rem;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .about-content-section p {
   font-size: 1.2rem;
-  color: var(--text-gray);
+  color: #ffffff;
   line-height: 1.8;
   margin-bottom: 2rem;
 }
@@ -30,7 +47,7 @@
 
 .about-content-section li {
   font-size: 1.15rem;
-  color: var(--text-gray);
+  color: #ffffff;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
