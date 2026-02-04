@@ -285,13 +285,60 @@ function Home() {
       <section className="partners-section">
         <div className="container">
           <h2 className="section-title">Trusted by Industry Leaders</h2>
+          <p className="partners-subtitle">Our students get hired by top global companies</p>
           <div className="partners-slider">
-            <div className="partner-logo">Google</div>
-            <div className="partner-logo">Microsoft</div>
-            <div className="partner-logo">Amazon</div>
-            <div className="partner-logo">Meta</div>
-            <div className="partner-logo">IBM</div>
-            <div className="partner-logo">Tesla</div>
+            <div className="partner-logo-wrapper">
+              <div className="partner-logo google">
+                <div className="logo-symbol google-symbol">G</div>
+                <div className="logo-name">Google</div>
+              </div>
+            </div>
+            <div className="partner-logo-wrapper">
+              <div className="partner-logo microsoft">
+                <div className="logo-symbol microsoft-symbol">
+                  <div className="ms-grid">
+                    <span className="ms-box"></span>
+                    <span className="ms-box"></span>
+                    <span className="ms-box"></span>
+                    <span className="ms-box"></span>
+                  </div>
+                </div>
+                <div className="logo-name">Microsoft</div>
+              </div>
+            </div>
+            <div className="partner-logo-wrapper">
+              <div className="partner-logo amazon">
+                <div className="logo-symbol amazon-symbol">
+                  <span className="amazon-a">a</span>
+                  <span className="amazon-smile"></span>
+                </div>
+                <div className="logo-name">Amazon</div>
+              </div>
+            </div>
+            <div className="partner-logo-wrapper">
+              <div className="partner-logo meta">
+                <div className="logo-symbol meta-symbol">∞</div>
+                <div className="logo-name">Meta</div>
+              </div>
+            </div>
+            <div className="partner-logo-wrapper">
+              <div className="partner-logo ibm">
+                <div className="logo-symbol ibm-symbol">
+                  <div className="ibm-stripes">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span>
+                  </div>
+                </div>
+                <div className="logo-name">IBM</div>
+              </div>
+            </div>
+            <div className="partner-logo-wrapper">
+              <div className="partner-logo tesla">
+                <div className="logo-symbol tesla-symbol">T</div>
+                <div className="logo-name">TESLA</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
