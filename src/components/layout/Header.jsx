@@ -4,7 +4,7 @@ import './Header.css';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
+  // dropdown state removed (not used currently)
 
   return (
     <header className="header">

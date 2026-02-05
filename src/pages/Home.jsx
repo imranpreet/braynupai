@@ -1,7 +1,168 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
 
 function Home() {
+  const [detailOverlay, setDetailOverlay] = useState(null);
+
+  const phaseDetails = {
+    foundation: {
+      title: "Week 1-2: Foundation & Onboarding",
+      icon: "🎓",
+      description: "Start your journey with a comprehensive orientation program designed to set you up for success.",
+      highlights: [
+        "Welcome orientation with program overview and expectations",
+        "Meet your dedicated mentors and join your learning cohort",
+        "Set up complete development environment and tools",
+        "Introduction to version control (Git & GitHub)",
+        "Basic programming fundamentals refresher",
+        "Time management and study strategies",
+        "Access to learning resources and community platforms",
+        "First coding assignment to assess baseline skills",
+        "Weekly check-ins and progress tracking setup"
+      ],
+      tools: ["VS Code", "Git", "GitHub", "Slack", "Zoom"],
+      outcomes: "By the end of Week 2, you'll have a fully configured development environment, understand the program structure, and be ready to dive into intensive skill development with a supportive community behind you.",
+      images: [
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
+      ]
+    },
+    core: {
+      title: "Week 3-8: Core Skills Development",
+      icon: "💻",
+      description: "Dive deep into your chosen specialization with intensive hands-on training and real-world projects.",
+      highlights: [
+        "50+ live interactive coding sessions with expert instructors",
+        "Master frontend (React, Vue) or backend (Node.js, Python, Django) technologies",
+        "In-depth data structures and algorithms training",
+        "Build 7 progressive mini-projects from scratch",
+        "Code reviews and peer programming sessions",
+        "Weekly assessments to track your progress",
+        "Debug and problem-solving workshops",
+        "Introduction to testing and quality assurance",
+        "Agile development methodologies"
+      ],
+      tools: ["React", "Node.js", "Python", "MongoDB", "PostgreSQL", "Docker"],
+      outcomes: "Complete this phase with strong foundational skills in your chosen tech stack, a portfolio of 7 working projects, and the confidence to tackle complex programming challenges independently.",
+      images: [
+        "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop"
+      ]
+    },
+    advanced: {
+      title: "Week 9-16: Advanced Concepts & Specialization",
+      icon: "🚀",
+      description: "Master cutting-edge technologies and advanced architectural patterns used by industry leaders.",
+      highlights: [
+        "AI/ML integration with TensorFlow and PyTorch basics",
+        "Cloud architecture on AWS, Azure, or Google Cloud",
+        "Microservices architecture and containerization",
+        "Advanced React patterns and state management (Redux, Context)",
+        "RESTful API design and GraphQL",
+        "WebSockets and real-time applications",
+        "Security best practices and authentication (OAuth, JWT)",
+        "Performance optimization and scalability",
+        "CI/CD pipelines and DevOps fundamentals"
+      ],
+      tools: ["AWS", "Kubernetes", "Redis", "GraphQL", "TensorFlow", "Jenkins"],
+      outcomes: "Emerge as an advanced developer capable of designing scalable systems, implementing modern architectural patterns, and working with enterprise-level technologies.",
+      images: [
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop"
+      ]
+    },
+    capstone: {
+      title: "Week 17-20: Capstone & Portfolio Development",
+      icon: "📁",
+      description: "Build your flagship project that showcases all your skills and creates a stunning professional portfolio.",
+      highlights: [
+        "Design and develop a complete full-stack application from scratch",
+        "Implement all modern best practices and design patterns",
+        "Create comprehensive project documentation",
+        "Build a professional portfolio website showcasing your work",
+        "Write compelling project descriptions and case studies",
+        "Resume building with ATS optimization",
+        "LinkedIn profile optimization for recruiters",
+        "GitHub profile enhancement and README best practices",
+        "Present your capstone project to peers and mentors"
+      ],
+      tools: ["React", "Node.js", "AWS", "MongoDB", "Git", "Figma"],
+      outcomes: "Graduate with a production-ready capstone project deployed live, a professional portfolio that stands out to employers, and all materials needed to land interviews at top companies.",
+      images: [
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop"
+      ]
+    },
+    interview: {
+      title: "Week 21-24: Interview Prep & Job Placement",
+      icon: "🎯",
+      description: "Master the interview process with intensive preparation, mock interviews, and direct company connections.",
+      highlights: [
+        "Data structures & algorithms interview training (150+ problems)",
+        "System design interviews for senior positions",
+        "Behavioral interview preparation with STAR method",
+        "15+ mock interviews with experienced interviewers",
+        "Company-specific interview preparation guides",
+        "Salary negotiation strategies and techniques",
+        "Direct referrals to 50+ partner companies",
+        "Resume reviews and cover letter optimization",
+        "Post-offer negotiation support and guidance"
+      ],
+      tools: ["LeetCode", "HackerRank", "Pramp", "interviewing.io"],
+      outcomes: "Walk into interviews with confidence, having practiced with real interview scenarios. Our alumni report 3-5 job offers on average, with salary increases of 50-150% compared to their previous roles.",
+      images: [
+        "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
+      ]
+    },
+    career: {
+      title: "Week 25+: Career Launch & Ongoing Support",
+      icon: "🏆",
+      description: "Celebrate your success and continue growing with lifetime career support, networking, and continuous learning.",
+      highlights: [
+        "Job offer acceptance guidance and contract review",
+        "First 90 days on-the-job support and mentorship",
+        "Access to exclusive alumni network of 10,000+ professionals",
+        "Monthly alumni events, webinars, and workshops",
+        "Advanced upskilling courses and certifications",
+        "Career transitions and promotions guidance",
+        "Startup founding support and resources",
+        "Freelancing and consulting opportunities",
+        "Lifetime access to all course updates and new content"
+      ],
+      tools: ["LinkedIn", "Blind", "Levels.fyi", "Company Slack Channels"],
+      outcomes: "Join a thriving community of successful alumni, continue learning and growing throughout your career, and give back by mentoring the next generation of developers. Our community is your competitive advantage for life.",
+      images: [
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop"
+      ]
+    }
+  };
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -130,6 +291,191 @@ function Home() {
                 </li>
               </ul>
               <button className="cta-btn cta-primary">Read More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Learning Journey Section */}
+      <section className="learning-journey-section">
+        <div className="container">
+          <div className="section-header-center">
+            <div className="section-label">YOUR PATH TO SUCCESS</div>
+            <h2 className="section-title">Complete Learning <span className="highlight-text">Journey</span></h2>
+            <p className="section-description">
+              From basics to advanced concepts - follow our structured 24-week program
+            </p>
+          </div>
+          
+          <div className="journey-grid">
+            {/* Foundation Card */}
+            <div className="journey-card" data-phase="foundation">
+              <div className="journey-card-inner">
+                <div className="journey-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop" 
+                    alt="Foundation & Onboarding" 
+                    className="journey-image"
+                  />
+                  <div className="journey-icon">🎓</div>
+                </div>
+                <div className="journey-content">
+                  <h3 className="journey-title">Week 1-2: Foundation & Onboarding</h3>
+                  <p className="journey-description">
+                    Start with a comprehensive orientation where you'll meet your mentors, join your cohort, 
+                    and set up your development environment.
+                  </p>
+                  <div className="journey-tags">
+                    <span className="journey-tag">✓ Welcome Kit</span>
+                    <span className="journey-tag">✓ Mentor Assignment</span>
+                    <span className="journey-tag">✓ Dev Environment Setup</span>
+                  </div>
+                  <button className="journey-expand-btn" onClick={() => setDetailOverlay('foundation')}>
+                    ▼ View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Core Skills Card */}
+            <div className="journey-card" data-phase="core">
+              <div className="journey-card-inner">
+                <div className="journey-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop" 
+                    alt="Core Skills Development" 
+                    className="journey-image"
+                  />
+                  <div className="journey-icon">💻</div>
+                </div>
+                <div className="journey-content">
+                  <h3 className="journey-title">Week 3-8: Core Skills Development</h3>
+                  <p className="journey-description">
+                    Dive deep into your chosen specialization. Master frontend or backend technologies, 
+                    data structures, and algorithms.
+                  </p>
+                  <div className="journey-tags">
+                    <span className="journey-tag">✓ 50+ Live Sessions</span>
+                    <span className="journey-tag">✓ 7 Mini Projects</span>
+                    <span className="journey-tag">✓ Weekly Assessments</span>
+                  </div>
+                  <button className="journey-expand-btn" onClick={() => setDetailOverlay('core')}>
+                    ▼ View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Advanced Card */}
+            <div className="journey-card" data-phase="advanced">
+              <div className="journey-card-inner">
+                <div className="journey-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop" 
+                    alt="Advanced Concepts" 
+                    className="journey-image"
+                  />
+                  <div className="journey-icon">🚀</div>
+                </div>
+                <div className="journey-content">
+                  <h3 className="journey-title">Week 9-16: Advanced Concepts & Specialization</h3>
+                  <p className="journey-description">
+                    Master advanced topics including AI/ML integration, cloud architecture, and microservices.
+                  </p>
+                  <div className="journey-tags">
+                    <span className="journey-tag">✓ Advanced Projects</span>
+                    <span className="journey-tag">✓ Cloud Deployment</span>
+                    <span className="journey-tag">✓ Industry Best Practices</span>
+                  </div>
+                  <button className="journey-expand-btn" onClick={() => setDetailOverlay('advanced')}>
+                    ▼ View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Capstone Card */}
+            <div className="journey-card" data-phase="capstone">
+              <div className="journey-card-inner">
+                <div className="journey-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" 
+                    alt="Capstone Project" 
+                    className="journey-image"
+                  />
+                  <div className="journey-icon">📁</div>
+                </div>
+                <div className="journey-content">
+                  <h3 className="journey-title">Week 17-20: Capstone & Portfolio Development</h3>
+                  <p className="journey-description">
+                    Build your flagship capstone project showcasing all your skills. Create professional portfolio.
+                  </p>
+                  <div className="journey-tags">
+                    <span className="journey-tag">✓ Capstone Project</span>
+                    <span className="journey-tag">✓ Portfolio Website</span>
+                    <span className="journey-tag">✓ Resume Building</span>
+                  </div>
+                  <button className="journey-expand-btn" onClick={() => setDetailOverlay('capstone')}>
+                    ▼ View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Interview Card */}
+            <div className="journey-card" data-phase="interview">
+              <div className="journey-card-inner">
+                <div className="journey-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop" 
+                    alt="Interview Preparation" 
+                    className="journey-image"
+                  />
+                  <div className="journey-icon">🎯</div>
+                </div>
+                <div className="journey-content">
+                  <h3 className="journey-title">Week 21-24: Interview Prep & Job Placement</h3>
+                  <p className="journey-description">
+                    Master the preparation process with mock interviews and coding challenges.
+                  </p>
+                  <div className="journey-tags">
+                    <span className="journey-tag">✓ DSA Interview</span>
+                    <span className="journey-tag">✓ Company Referrals</span>
+                    <span className="journey-tag">✓ Offer Negotiations</span>
+                  </div>
+                  <button className="journey-expand-btn" onClick={() => setDetailOverlay('interview')}>
+                    ▼ View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Career Card */}
+            <div className="journey-card" data-phase="career">
+              <div className="journey-card-inner">
+                <div className="journey-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" 
+                    alt="Career Launch" 
+                    className="journey-image"
+                  />
+                  <div className="journey-icon">🏆</div>
+                </div>
+                <div className="journey-content">
+                  <h3 className="journey-title">Week 25+: Career Launch & Ongoing Support</h3>
+                  <p className="journey-description">
+                    Land your dream job and continue growing with lifetime career support and resources.
+                  </p>
+                  <div className="journey-tags">
+                    <span className="journey-tag">✓ Job Offers</span>
+                    <span className="journey-tag">✓ Alumni Network</span>
+                    <span className="journey-tag">✓ Lifetime Updates</span>
+                  </div>
+                  <button className="journey-expand-btn" onClick={() => setDetailOverlay('career')}>
+                    ▼ View Details
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -517,6 +863,63 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Detail Overlay Modal */}
+      {detailOverlay && (
+        <div className="detail-overlay" onClick={() => setDetailOverlay(null)}>
+          <div className="detail-overlay-container" onClick={(e) => e.stopPropagation()}>
+            <button className="detail-close-btn" onClick={() => setDetailOverlay(null)}>
+              ×
+            </button>
+            
+            <div className="detail-split-screen">
+              {/* Left Side - Content */}
+              <div className="detail-left-content">
+                <div className="detail-header">
+                  <div className="detail-icon">{phaseDetails[detailOverlay].icon}</div>
+                  <h2 className="detail-title">{phaseDetails[detailOverlay].title}</h2>
+                </div>
+                
+                <p className="detail-description">{phaseDetails[detailOverlay].description}</p>
+                
+                <div className="detail-section">
+                  <h3 className="detail-section-title">📚 Key Highlights</h3>
+                  <ul className="detail-highlights-list">
+                    {phaseDetails[detailOverlay].highlights.map((highlight, index) => (
+                      <li key={index} className="detail-highlight-item">{highlight}</li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="detail-section">
+                  <h3 className="detail-section-title">🛠️ Technologies & Tools</h3>
+                  <div className="detail-tools-grid">
+                    {phaseDetails[detailOverlay].tools.map((tool, index) => (
+                      <span key={index} className="detail-tool-badge">{tool}</span>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="detail-section">
+                  <h3 className="detail-section-title">🎯 Learning Outcomes</h3>
+                  <p className="detail-outcomes">{phaseDetails[detailOverlay].outcomes}</p>
+                </div>
+              </div>
+              
+              {/* Right Side - Image Slideshow */}
+              <div className="detail-right-images">
+                <div className="detail-slideshow">
+                  {phaseDetails[detailOverlay].images.map((image, index) => (
+                    <div key={index} className="detail-slide" style={{ animationDelay: `${index * 4}s` }}>
+                      <img src={image} alt={`${phaseDetails[detailOverlay].title} - Image ${index + 1}`} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
