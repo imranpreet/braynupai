@@ -831,7 +831,7 @@ function Home() {
             {/* Course 1 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&q=80" alt="AI & Machine Learning" />
+                <img src="/src/img.jpg" alt="AI Engineering" />
                 <div className="course-badge-compact bestseller">BESTSELLER</div>
               </div>
               <div className="compact-course-info">
@@ -855,7 +855,7 @@ function Home() {
             {/* Course 2 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop&q=80" alt="Full Stack Development" />
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop" alt="Full Stack" />
                 <div className="course-badge-compact hot">HOT 🔥</div>
               </div>
               <div className="compact-course-info">
@@ -901,7 +901,7 @@ function Home() {
             {/* Course 3 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80" alt="Data Science" />
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" alt="Data Science" />
                 <div className="course-badge-compact new">NEW</div>
               </div>
               <div className="compact-course-info">
@@ -947,7 +947,7 @@ function Home() {
             {/* Course 4 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&h=400&fit=crop&q=80" alt="DevOps" />
+                <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=400&h=300&fit=crop" alt="DevOps" />
                 <div className="course-badge-compact trending">TRENDING</div>
               </div>
               <div className="compact-course-info">
@@ -993,7 +993,7 @@ function Home() {
             {/* Course 5 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&q=80" alt="UI/UX Design" />
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop" alt="UI/UX Design" />
                 <div className="course-badge-compact new">NEW</div>
               </div>
               <div className="compact-course-info">
@@ -1039,7 +1039,7 @@ function Home() {
             {/* Course 6 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop&q=80" alt="Blockchain" />
+                <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop" alt="Blockchain" />
                 <div className="course-badge-compact hot">HOT 🔥</div>
               </div>
               <div className="compact-course-info">
@@ -1081,6 +1081,98 @@ function Home() {
                 <button className="hover-enroll-btn">Enroll Now - ₹24,999</button>
               </div>
             </div>
+
+            {/* Course 7 */}
+            <div className="compact-course-card">
+              <div className="compact-course-image">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300&fit=crop" alt="Digital Marketing" />
+                <div className="course-badge-compact bestseller">BESTSELLER</div>
+              </div>
+              <div className="compact-course-info">
+                <div className="course-rating-compact">
+                  <span className="stars-compact">⭐⭐⭐⭐⭐</span>
+                  <span className="rating-num">(4.8)</span>
+                </div>
+                <h3 className="compact-course-title">Digital Marketing & SEO Mastery</h3>
+                <div className="compact-course-meta">
+                  <span className="meta-item">📚 35 Hours</span>
+                  <span className="meta-item">👥 6.1K</span>
+                </div>
+                <div className="compact-course-price">
+                  <span className="price-original">₹29,999</span>
+                  <span className="price-now">₹9,999</span>
+                </div>
+                <button className="compact-enroll-btn">Enroll Now</button>
+              </div>
+              
+              <div className="hover-detail-card">
+                <div className="hover-header">
+                  <h3>Digital Marketing & SEO Mastery 2026</h3>
+                  <span className="close-hover">✕</span>
+                </div>
+                <p className="hover-desc">Master SEO, Social Media, Google Ads, Email Marketing. Grow businesses online effectively.</p>
+                <div className="hover-features">
+                  <div className="feature">✓ Campaign Projects</div>
+                  <div className="feature">✓ Google Certified</div>
+                  <div className="feature">✓ Real Campaigns</div>
+                  <div className="feature">✓ Certificate</div>
+                </div>
+                <div className="hover-instructor">
+                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&h=60&fit=crop" alt="Instructor" />
+                  <div>
+                    <div className="instructor-name-hover">Divya Rao</div>
+                    <div className="instructor-role">Marketing Lead, HubSpot</div>
+                  </div>
+                </div>
+                <button className="hover-enroll-btn">Enroll Now - ₹9,999</button>
+              </div>
+            </div>
+
+            {/* Course 8 */}
+            <div className="compact-course-card">
+              <div className="compact-course-image">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop" alt="Cybersecurity" />
+                <div className="course-badge-compact trending">TRENDING</div>
+              </div>
+              <div className="compact-course-info">
+                <div className="course-rating-compact">
+                  <span className="stars-compact">⭐⭐⭐⭐⭐</span>
+                  <span className="rating-num">(4.9)</span>
+                </div>
+                <h3 className="compact-course-title">Cybersecurity & Ethical Hacking</h3>
+                <div className="compact-course-meta">
+                  <span className="meta-item">📚 52 Hours</span>
+                  <span className="meta-item">👥 3.2K</span>
+                </div>
+                <div className="compact-course-price">
+                  <span className="price-original">₹49,999</span>
+                  <span className="price-now">₹19,999</span>
+                </div>
+                <button className="compact-enroll-btn">Enroll Now</button>
+              </div>
+              
+              <div className="hover-detail-card">
+                <div className="hover-header">
+                  <h3>Cybersecurity & Ethical Hacking Complete Course</h3>
+                  <span className="close-hover">✕</span>
+                </div>
+                <p className="hover-desc">Learn penetration testing, network security, ethical hacking. Become a certified security expert.</p>
+                <div className="hover-features">
+                  <div className="feature">✓ Penetration Testing</div>
+                  <div className="feature">✓ CEH Certified</div>
+                  <div className="feature">✓ Real Lab Access</div>
+                  <div className="feature">✓ Certificate</div>
+                </div>
+                <div className="hover-instructor">
+                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=60&h=60&fit=crop" alt="Instructor" />
+                  <div>
+                    <div className="instructor-name-hover">Vikram Reddy</div>
+                    <div className="instructor-role">Security Expert, Cisco</div>
+                  </div>
+                </div>
+                <button className="hover-enroll-btn">Enroll Now - ₹19,999</button>
+              </div>
+            </div>
           </div>
           
           <div className="courses-stats-banner">
@@ -1115,7 +1207,10 @@ function Home() {
           <div className="about-layout">
             <div className="about-content">
               <div className="section-label">ABOUT US</div>
-              <h2 className="section-title">Empowering <span className="highlight-text">50,000+ Learners</span> Across <span className="highlight-text">120+ Countries</span></h2>
+              <h2 className="section-title">
+                Empowering <span className="highlight-text">50,000+ Learners</span><br />
+                Across 120+ Countries
+              </h2>
               <p className="about-description">
                 BraynupAI is a revolutionary AI-based IT training platform designed to deliver 
                 future-ready education. We specialize in cutting-edge programs that transform careers 
@@ -1161,8 +1256,8 @@ function Home() {
         <div className="container">
           <div className="section-header-center">
             <div className="section-label-bold">WHY CHOOSE US</div>
-            <h2 className="section-title">10 Reasons to Start Your <span className="highlight-text">AI Journey</span> With Us</h2>
             <p className="section-subtitle">Discover what makes BraynupAI the perfect choice for your learning journey</p>
+            <h2 className="section-title">10 Reasons to Start Your <span className="highlight-text">AI Journey</span> With Us</h2>
           </div>
           
           <div className="why-grid-animated"> 

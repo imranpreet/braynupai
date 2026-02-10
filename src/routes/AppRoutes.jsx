@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import Home from '../pages/Home';
 import Courses from '../pages/Courses';
+import CourseDetail from '../pages/CourseDetail';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Login from '../pages/Login';
@@ -14,6 +15,7 @@ function AppRoutes() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="courses" element={<Courses />} />
+        <Route path="course/:courseId" element={<CourseDetail />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />
