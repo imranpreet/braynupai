@@ -17,64 +17,111 @@ function Login() {
   return (
     <div className="auth-page">
       <div className="auth-split-container">
-        {/* Left Side - Illustration */}
+        {/* Left Side - Illustration & Content */}
         <div className="auth-left-panel">
-          <div className="illustration-container">
-            <div className="rocket-illustration">
-              <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-                {/* Rocket Body */}
-                <ellipse cx="100" cy="180" rx="35" ry="80" fill="#E74C3C"/>
-                {/* Rocket Top */}
-                <path d="M100 80 L140 150 L60 150 Z" fill="#E74C3C"/>
-                {/* Window */}
-                <circle cx="100" cy="140" r="20" fill="white"/>
-                <circle cx="100" cy="140" r="12" fill="#5DADE2"/>
-                {/* Left Fin */}
-                <path d="M65 200 L50 260 L65 240 Z" fill="#C0392B"/>
-                {/* Right Fin */}
-                <path d="M135 200 L150 260 L135 240 Z" fill="#C0392B"/>
-                {/* Rocket Bottom */}
-                <ellipse cx="100" cy="230" rx="35" ry="15" fill="#C0392B"/>
-                {/* Fire/Exhaust */}
-                <ellipse cx="100" cy="245" rx="25" ry="20" fill="#F39C12" opacity="0.8"/>
-                <ellipse cx="100" cy="255" rx="20" ry="25" fill="#E67E22" opacity="0.7"/>
-                <ellipse cx="100" cy="270" rx="15" ry="20" fill="#E74C3C" opacity="0.6"/>
+          <div className="left-content">
+            <div className="brand-section">
+              <h1 className="brand-title">Learn smarter with BrainupAI</h1>
+              <p className="brand-description">
+                A platform where students grow, learn, and upskill with AI-powered courses
+              </p>
+            </div>
+
+            <div className="illustration-wrapper">
+              <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" className="student-illustration">
+                {/* Desk */}
+                <rect x="80" y="280" width="340" height="15" rx="7" fill="#8B4513" opacity="0.3"/>
+                
+                {/* Laptop Base */}
+                <rect x="180" y="240" width="140" height="8" rx="4" fill="#4A5568"/>
+                
+                {/* Laptop Screen */}
+                <rect x="185" y="160" width="130" height="85" rx="5" fill="#2D3748"/>
+                <rect x="195" y="170" width="110" height="65" rx="3" fill="#63B3ED"/>
+                
+                {/* Screen Content Lines */}
+                <rect x="205" y="180" width="90" height="4" rx="2" fill="#E2E8F0"/>
+                <rect x="205" y="190" width="70" height="4" rx="2" fill="#E2E8F0"/>
+                <rect x="205" y="200" width="85" height="4" rx="2" fill="#E2E8F0"/>
+                
+                {/* Books Stack */}
+                <rect x="100" y="260" width="60" height="12" rx="3" fill="#E63946"/>
+                <rect x="105" y="248" width="55" height="12" rx="3" fill="#F39C12"/>
+                <rect x="110" y="236" width="50" height="12" rx="3" fill="#3498DB"/>
+                
+                {/* Coffee Cup */}
+                <ellipse cx="370" cy="265" rx="18" ry="5" fill="#8B4513" opacity="0.3"/>
+                <rect x="352" y="250" width="36" height="20" rx="5" fill="#E8E8E8"/>
+                <path d="M352 260 Q350 265 352 270" stroke="#CBD5E0" strokeWidth="2" fill="none"/>
+                
+                {/* Coffee Steam */}
+                <path d="M365 240 Q367 235 365 230" stroke="#CBD5E0" strokeWidth="1.5" fill="none" opacity="0.6"/>
+                <path d="M375 238 Q377 233 375 228" stroke="#CBD5E0" strokeWidth="1.5" fill="none" opacity="0.6"/>
+                
+                {/* Student Head */}
+                <circle cx="250" cy="140" r="35" fill="#FBBF77"/>
+                
+                {/* Hair */}
+                <path d="M215 140 Q215 105 250 100 Q285 105 285 140" fill="#2C3E50"/>
+                
+                {/* Eyes */}
+                <circle cx="235" cy="140" r="3" fill="#2C3E50"/>
+                <circle cx="265" cy="140" r="3" fill="#2C3E50"/>
+                
+                {/* Smile */}
+                <path d="M235 152 Q250 160 265 152" stroke="#2C3E50" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                
+                {/* Body/Shirt */}
+                <path d="M215 175 L215 250 L285 250 L285 175" fill="#E63946"/>
+                <circle cx="250" cy="175" r="30" fill="#E63946"/>
+                
+                {/* Arms */}
+                <rect x="195" y="190" width="15" height="60" rx="7" fill="#FBBF77"/>
+                <rect x="290" y="190" width="15" height="60" rx="7" fill="#FBBF77"/>
+                
+                {/* Hands */}
+                <circle cx="202" cy="245" r="10" fill="#FBBF77"/>
+                <circle cx="298" cy="245" r="10" fill="#FBBF77"/>
+                
+                {/* Pencil in hand */}
+                <rect x="295" y="235" width="3" height="35" fill="#F39C12" transform="rotate(-30 297 252)"/>
+                <path d="M305 225 L310 220 L307 230 Z" fill="#2C3E50" transform="rotate(-30 307 225)"/>
+                
+                {/* Notebook */}
+                <rect x="70" y="200" width="45" height="60" rx="3" fill="#F8F9FA"/>
+                <line x1="75" y1="210" x2="110" y2="210" stroke="#CBD5E0" strokeWidth="1"/>
+                <line x1="75" y1="220" x2="110" y2="220" stroke="#CBD5E0" strokeWidth="1"/>
+                <line x1="75" y1="230" x2="110" y2="230" stroke="#CBD5E0" strokeWidth="1"/>
+                
+                {/* Floating Elements - Ideas */}
+                <circle cx="150" cy="100" r="25" fill="#FED7D7" opacity="0.6"/>
+                <text x="145" y="110" fontSize="20" fill="#E63946">💡</text>
+                
+                <circle cx="360" cy="120" r="22" fill="#C6F6D5" opacity="0.6"/>
+                <text x="355" y="128" fontSize="18" fill="#38A169">📚</text>
+                
+                <circle cx="130" cy="180" r="20" fill="#BEE3F8" opacity="0.6"/>
+                <text x="126" y="188" fontSize="16" fill="#3182CE">🎯</text>
+                
+                <circle cx="380" cy="200" r="23" fill="#FEFCBF" opacity="0.6"/>
+                <text x="375" y="208" fontSize="18" fill="#D69E2E">⭐</text>
               </svg>
             </div>
-            
-            {/* Clouds */}
-            <div className="cloud cloud-1">
-              <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="25" cy="30" rx="20" ry="15" fill="white" opacity="0.9"/>
-                <ellipse cx="45" cy="25" rx="25" ry="18" fill="white" opacity="0.9"/>
-                <ellipse cx="65" cy="30" rx="20" ry="15" fill="white" opacity="0.9"/>
-              </svg>
+
+            <div className="features-list">
+              <div className="feature-item">
+                <div className="feature-icon">✓</div>
+                <span>AI-Powered Learning Paths</span>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon">✓</div>
+                <span>Expert-Led Courses</span>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon">✓</div>
+                <span>Real-World Projects</span>
+              </div>
             </div>
-            <div className="cloud cloud-2">
-              <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="25" cy="30" rx="20" ry="15" fill="white" opacity="0.9"/>
-                <ellipse cx="45" cy="25" rx="25" ry="18" fill="white" opacity="0.9"/>
-                <ellipse cx="65" cy="30" rx="20" ry="15" fill="white" opacity="0.9"/>
-              </svg>
-            </div>
-            <div className="cloud cloud-3">
-              <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="25" cy="30" rx="20" ry="15" fill="white" opacity="0.9"/>
-                <ellipse cx="45" cy="25" rx="25" ry="18" fill="white" opacity="0.9"/>
-                <ellipse cx="65" cy="30" rx="20" ry="15" fill="white" opacity="0.9"/>
-              </svg>
-            </div>
-          </div>
-          
-          <div className="welcome-text">
-            <h1>Hey there!</h1>
-            <p className="welcome-subtitle">Welcome back</p>
-            <p className="welcome-description">You are just one step away from your feed</p>
-          </div>
-          
-          <div className="register-section">
-            <p>Don't have an account?</p>
-            <Link to="/signup" className="register-btn">REGISTER NOW</Link>
           </div>
         </div>
 
@@ -141,6 +188,10 @@ function Login() {
                   <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
                 </svg>
               </button>
+            </div>
+
+            <div className="signup-prompt">
+              <p>Don't have an account? <Link to="/signup" className="signup-link">Sign Up</Link></p>
             </div>
           </div>
         </div>

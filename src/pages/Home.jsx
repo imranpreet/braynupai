@@ -997,6 +997,19 @@ function Home() {
               </div>
             </div>
             
+:thumbsup:
+Click to react
+:heart:
+Click to react
+:partying_face:
+Click to react
+Add Reaction
+Reply
+Forward
+More
+￼￼Choose FilesNo file chosen
+Message "Linkedin"
+
             {/* Card 9: Affordable Pricing */}
             <div 
               className={`why-card slide-in ${hoveredCard === 9 ? 'card-hovered' : ''}`}
