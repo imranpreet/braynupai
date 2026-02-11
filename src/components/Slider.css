@@ -71,7 +71,7 @@
   align-items: center;
   /* center the two columns and control spacing via gap so there's no large empty center area */
   justify-content: center;
-  padding: 80px 5%; /* use percentage padding for responsive side spacing */
+  padding: 80px 0; /* remove horizontal padding so background can expand fully */
   gap: 36px; /* tighten gap slightly */
   min-height: 100vh;
   width: 100%;
@@ -79,6 +79,7 @@
   margin: 0;
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 /* Minimal alignment tweak: center headings inside slide content without changing backgrounds */
@@ -186,10 +187,9 @@
 }
 
 .slide-content-left {
-  flex: 1 1 55%;
-  max-width: 680px; /* allow slightly more text width for denser layout */
-  /* remove extra right padding so columns sit tight when centered */
-  padding-right: 0;
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 40px; /* internal gutter so content doesn't touch screen edge */
 }
 
 .hero-badge {
@@ -272,20 +272,20 @@
 }
 
 .slide-content-right {
-  flex: 1 1 40%;
+  flex: 0 0 50%;
+  max-width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* remove extra left padding so columns sit tight when centered */
-  padding-left: 0;
+  padding: 0 40px;
 }
 
 /* Hero Single Image */
 .hero-single-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 860px; /* larger hero visual */
-  height: 820px; /* increased to reduce empty vertical space */
+  max-width: 100%;
+  height: 720px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -295,6 +295,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center right; /* keep important subject visible */
   border-radius: 20px;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
   filter: none;
@@ -378,10 +379,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* darker, blurred overlay to improve content contrast */
-  background: rgba(0, 0, 0, 0.55);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  /* darker, stronger blurred overlay to improve content contrast */
+  background: rgba(0, 0, 0, 0.75);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   z-index: 0;
   pointer-events: none;
 }
@@ -414,12 +415,11 @@
 }
 
 .images-content-left {
-  flex: 1 1 45%;
-  max-width: 550px;
+  flex: 0 0 50%;
+  max-width: 50%;
   position: relative;
   z-index: 2;
-  /* remove padding so image/text columns align tightly */
-  padding-right: 0;
+  padding: 0 40px;
 }
 
 /* Make text readable on the darkened, blurred images slide */
@@ -429,9 +429,10 @@
 }
 .images-slide .images-title {
   color: #ffffff;
+  font-weight: 800;
 }
 .images-slide .images-description {
-  color: #e6e6e6;
+  color: #f2f2f2;
 }
 .images-slide .features-grid .feature-item {
   background: rgba(255, 255, 255, 0.04);
