@@ -79,8 +79,14 @@ function HeroSlider() {
       backgroundImage: slide4,
       title: 'Why Choose BraynupAI?',
       subtitle: 'Everything You Need to Build Your AI Career',
-      fullDescription: 'BraynupAI is a revolutionary AI-based IT training platform designed to deliver future-ready education. We specialize in cutting-edge programs that transform careers through innovative AI-powered learning experiences. Our comprehensive curriculum covers AI, Machine Learning, Deep Learning, and cutting-edge technologies. Learn from industry professionals with 10+ years of experience, work on real-world projects, and get guaranteed placement support with top tech companies like Google, Microsoft, and Amazon. Join our global community of 50,000+ learners from 120+ countries and transform your career with our industry-recognized certifications, lifetime access to courses, and 24/7 expert support. With a 95% placement rate and 150% average salary hike, BraynupAI is your gateway to a successful AI career.',
-      items: []
+      fullDescription: 'BraynupAI is a revolutionary AI-based IT training platform designed to deliver future-ready education. We specialize in cutting-edge programs that transform careers through innovative AI-powered learning experiences. Our comprehensive curriculum covers AI, Machine Learning, Deep Learning, and cutting-edge technologies. Learn from industry professionals with 10+ years of experience, work on real-world projects, and get guaranteed placement support with top tech companies. Join our global community of learners and transform your career with our industry-recognized certifications, lifetime access to courses, and 24/7 expert support.',
+      extra: 'Our approach blends mentor-led sessions, hands-on projects, career coaching, and a strong placement network. Students work on capstone projects, receive mock interviews, and get personalized resume feedback. Outcomes include job-ready portfolios, real interview experience, and industry connections that accelerate hiring timelines.',
+      items: [
+        'Mentor-led live sessions & office hours',
+        'Capstone projects & real-world briefs',
+        'Resume & interview coaching',
+        'Lifetime community & networking'
+      ]
     },
 
     {
@@ -315,12 +321,24 @@ function HeroSlider() {
               }}>
                 {/* Background Image */}
                 <div className="boxes-overlay"></div>
-                
+
                 <div className="boxes-content-center">
-                  <div className="section-badge light">OUR STRENGTHS</div>
-                  <h2 className="boxes-main-title">{s.title}</h2>
-                  <h3 className="boxes-main-subtitle">{s.subtitle}</h3>
-                  <p className="boxes-main-description">{s.fullDescription}</p>
+                  <div className="boxes-grid">
+                    <div className="boxes-left">
+                      <div className="section-badge light">OUR STRENGTHS</div>
+                      <h2 className="boxes-main-title">{s.title}</h2>
+                      <h3 className="boxes-main-subtitle">{s.subtitle}</h3>
+                      <p className="boxes-main-description">{s.fullDescription}</p>
+                      {s.extra && <p className="boxes-main-description boxes-extra">{s.extra}</p>}
+                    </div>
+                    <div className="boxes-right">
+                      <ul className="boxes-features">
+                        {s.items && s.items.map((it, i) => (
+                          <li key={i} className="boxes-feature-item">{it}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
@@ -335,38 +353,54 @@ function HeroSlider() {
               }}>
                 {/* Background Image */}
                 <div className="video-bg-overlay">
-                  <div className="video-bg-content">
-                    <div className="section-badge light">ENROLL TODAY</div>
-                    <h2 className="video-bg-title">{s.title}</h2>
-                    <h3 className="video-bg-subtitle">{s.subtitle}</h3>
-                    
-                    {/* Features List */}
-                    {s.features && (
-                      <div className="features-list">
-                        {s.features.map((feature, i) => (
-                          <div key={i} className="feature-item">
-                            <span className="feature-icon">{feature.icon}</span>
-                            <span className="feature-text">{feature.text}</span>
+                  <div className="video-bg-row">
+                    <div className="video-bg-left">
+                      <div className="video-bg-content">
+                        <div className="section-badge light">ENROLL TODAY</div>
+                        <h2 className="video-bg-title">{s.title}</h2>
+                        <h3 className="video-bg-subtitle">{s.subtitle}</h3>
+
+                        {/* Features List */}
+                        {s.features && (
+                          <div className="features-list">
+                            {s.features.map((feature, i) => (
+                              <div key={i} className="feature-item">
+                                <span className="feature-icon">{feature.icon}</span>
+                                <span className="feature-text">{feature.text}</span>
+                              </div>
+                            ))}
                           </div>
-                        ))}
-                      </div>
-                    )}
-                    
-                    <div className="video-bg-stats">
-                      {s.stats.map((stat, i) => (
-                        <div key={i} className="bg-stat-item">
-                          <div className="bg-stat-value">{stat.value}</div>
-                          <div className="bg-stat-label">{stat.label}</div>
+                        )}
+
+                        <div className="video-bg-stats">
+                          {s.stats.map((stat, i) => (
+                            <div key={i} className="bg-stat-item">
+                              <div className="bg-stat-value">{stat.value}</div>
+                              <div className="bg-stat-label">{stat.label}</div>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                        <div className="video-bg-ctas">
+                          <button className="cta-btn cta-primary large">
+                            {s.ctaPrimary} <span className="arrow">→</span>
+                          </button>
+                          <button className="cta-btn cta-secondary large">
+                            {s.ctaSecondary}
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <div className="video-bg-ctas">
-                      <button className="cta-btn cta-primary large">
-                        {s.ctaPrimary} <span className="arrow">→</span>
-                      </button>
-                      <button className="cta-btn cta-secondary large">
-                        {s.ctaSecondary}
-                      </button>
+                    <div className="video-bg-right">
+                      {/* Right-side visual: use features summary or image */}
+                      <div className="side-info-card">
+                        <h4>Why Join</h4>
+                        <ul>
+                          {s.features && s.features.slice(0,4).map((f, i) => (
+                            <li key={i}><span className="feature-icon small">{f.icon}</span> {f.text}</li>
+                          ))}
+                        </ul>
+                        <div className="info-visual" style={{backgroundImage: `url(${s.backgroundImage})`}} />
+                      </div>
                     </div>
                   </div>
                 </div>
