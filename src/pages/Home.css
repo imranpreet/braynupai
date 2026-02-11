@@ -789,6 +789,32 @@
   font-weight: 600;
 }
 
+.about-image-side {
+  position: relative;
+  animation: slideInRight 1s ease-out;
+}
+
+.image-wrapper-side {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper-side:hover {
+  transform: translateY(-10px);
+}
+
+.about-side-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  min-height: 500px;
+}
+
+/* Legacy video wrapper for backward compatibility */
 .about-video {
   position: relative;
 }

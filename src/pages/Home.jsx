@@ -29,6 +29,9 @@ function Home() {
     }
   };
 
+ 
+
+
   const testimonialData = {
     kamya: {
       name: "Kamya Malhotra",
@@ -1140,16 +1143,13 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="about-video">
-              <div className="video-wrapper">
-                <iframe
-                  src="https://www.youtube.com/embed/JMUxmLyrhSk"
-                  title="BraynupAI Education"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-                <div className="video-overlay"></div>
+            <div className="about-image-side">
+              <div className="image-wrapper-side">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" 
+                  alt="BraynupAI Learning Community" 
+                  className="about-side-image"
+                />
               </div>
             </div>
           </div>
