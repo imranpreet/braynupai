@@ -1745,29 +1745,48 @@
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
 }
 
 .partner-item {
-  text-align: center;
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
   transition: all 0.3s ease;
 }
 
 .partner-item:hover {
+  transform: translateY(-5px);
+}
+
+.partner-logo-img {
+  max-width: 100%;
+  height: 40px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.partner-item:hover .partner-logo-img {
+  filter: grayscale(0%);
+  opacity: 1;
   transform: scale(1.1);
 }
 
-.partner-logo {
-  font-size: 1.5rem;
+.partner-logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #666666;
   transition: color 0.3s ease;
 }
 
-.partner-item:hover .partner-logo {
-  color: #e63946;
+.partner-item:hover .partner-logo-text {
+  color: #1a1a1a;
 }
 
 /* TESTIMONIALS SECTION */

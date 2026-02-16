@@ -2062,22 +2062,28 @@ function Home() {
           <h3 className="partners-title">Trusted by Industry Leaders</h3>
           <div className="partners-grid">
             <div className="partner-item">
-              <div className="partner-logo">Google</div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="partner-logo-img" />
+              <div className="partner-logo-text">Google</div>
             </div>
             <div className="partner-item">
-              <div className="partner-logo">Microsoft</div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" className="partner-logo-img" />
+              <div className="partner-logo-text">Microsoft</div>
             </div>
             <div className="partner-item">
-              <div className="partner-logo">Amazon</div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="partner-logo-img" />
+              <div className="partner-logo-text">Amazon</div>
             </div>
             <div className="partner-item">
-              <div className="partner-logo">Meta</div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="partner-logo-img" />
+              <div className="partner-logo-text">Meta</div>
             </div>
             <div className="partner-item">
-              <div className="partner-logo">Netflix</div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" className="partner-logo-img" />
+              <div className="partner-logo-text">Netflix</div>
             </div>
             <div className="partner-item">
-              <div className="partner-logo">Tesla</div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" alt="Tesla" className="partner-logo-img" />
+              <div className="partner-logo-text">Tesla</div>
             </div>
           </div>
         </div>

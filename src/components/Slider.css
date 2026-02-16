@@ -161,6 +161,14 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   box-sizing: border-box;
 }
 
+/* Tighter, slide-specific adjustments for the first (hero) slide only.
+   This reduces the horizontal gap between the left copy and right image
+   so the two columns sit flush and look like the provided screenshot. */
+.slide-inner.hero-slide {
+  gap: 6px; /* almost no horizontal gap for hero slide */
+  padding: 0 12px; /* slightly reduce horizontal padding for hero */
+}
+
 /* Specific override for slide 4: reduce outer padding so the left column
    (heading/subtitle/paragraph) sits closer vertically and doesn't get
    pushed down by the default .slide-inner padding. */
@@ -383,19 +391,19 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
    prominent presence. These rules intentionally target only `.hero-slide` so
    other slides (images, video-right, boxes) keep their updated behaviour. */
 .hero-slide .slide-content-left {
-  flex: 0 0 48%;
-  max-width: 48%;
-  padding: 0 24px 0 48px; /* restore original inset */
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 12px 0 32px; /* reduce right inset so text sits closer to media */
   box-sizing: border-box;
 }
 
 .hero-slide .slide-content-right {
-  flex: 0 0 52%;
-  max-width: 52%;
+  flex: 0 0 48%;
+  max-width: 48%;
   display: flex;
-  justify-content: flex-end; /* push image toward the right edge */
+  justify-content: flex-start; /* align image next to the text */
   align-items: center;
-  padding: 0 12px 0 24px; /* restore original paddings */
+  padding: 0 8px 0 12px; /* reduce left padding so media moves closer */
   box-sizing: border-box;
   overflow: visible;
 }
