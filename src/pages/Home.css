@@ -788,17 +788,18 @@
 
 /* ABOUT SECTION */
 .about-section {
-  padding: 80px 0;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 100px 0;
+  background: #ffffff;
 }
 
 .about-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
+  grid-template-columns: 1fr 460px;
+  gap: 4rem;
   align-items: center;
 }
 
+<<<<<<< HEAD
 .about-layout--split {
   align-items: start;
 }
@@ -882,45 +883,97 @@
   word-spacing: 0;
   letter-spacing: -0.02em;
   line-height: 1.3;
+=======
+.about-content {
+  padding-right: 2rem;
+}
+
+.section-label-about {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+>>>>>>> harman
   display: block;
+  text-transform: uppercase;
 }
 
-.highlight-text {
-  color: #e63946;
-  position: relative;
-}
-
-.about-description {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #666666;
-  margin-bottom: 3rem;
-}
-
-.about-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-
-.stat-item {
-  text-align: center;
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 900;
-  color: #e63946;
-  margin-bottom: 0.5rem;
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 0.95rem;
-  color: #666666;
+.about-main-heading {
+  font-size: 2.8rem;
   font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-bottom: 2rem;
+  font-family: 'Poppins', sans-serif;
 }
 
+.about-description-main {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.about-description-detail {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.learn-more-button {
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.learn-more-button:hover {
+  background: #e63946;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(230, 57, 70, 0.3);
+}
+
+.about-image-side {
+  position: relative;
+  height: 100%;
+}
+
+.image-wrapper-elegant {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: 100%;
+}
+.about-image-side {
+  justify-self: end;
+}
+
+
+.about-side-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  min-height: 520px;
+  max-height: 680px;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Legacy video wrapper for backward compatibility */
 .about-video {
   position: relative;
 }
@@ -1692,6 +1745,10 @@
   align-items: center;
   gap: 2rem;
   margin-top: 3rem;
+  overflow: visible; /* allow nav buttons to sit outside the scroll area */
+  max-width: 1072px; /* exactly 2 cards (520px × 2) + 1 gap (32px) */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .testimonial-nav-btn {
@@ -1719,11 +1776,11 @@
 }
 
 .testimonial-nav-left {
-  left: -28px;
+  left: -28px; /* place left button outside the scroll container so it doesn't cover the card */
 }
 
 .testimonial-nav-right {
-  right: -28px;
+  right: -28px; /* place right button outside the scroll container so it doesn't cover the card */
 }
 
 .testimonials-scroll-container {
@@ -1732,6 +1789,20 @@
   overflow-y: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  /* no padding needed since parent container constrains width to exactly 3 cards */
+  padding: 0;
+  box-sizing: content-box;
+  scroll-snap-type: x mandatory;
+}
+
+/* On smaller screens, add padding and remove width constraint */
+@media (max-width: 1240px) {
+  .testimonials-navigation {
+    max-width: none;
+  }
+  .testimonials-scroll-container {
+    padding: 0 24px;
+  }
 }
 
 .testimonials-scroll-container::-webkit-scrollbar {
@@ -1740,8 +1811,12 @@
 
 .testimonials-grid {
   display: flex;
-  gap: 2rem;
+  gap: 32px; /* explicit gap to match 1204px content calc */
   width: max-content;
+}
+
+.testimonial-card {
+  scroll-snap-align: start;
 }
 
 .testimonial-card {
@@ -1751,8 +1826,9 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
   transition: all 0.4s ease;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  min-width: 380px;
-  max-width: 380px;
+  /* fixed card width so 2 cards (2*520 + 32 = 1072px) fit on wide screens */
+  min-width: 425px;
+  max-width: 425px;
 }
 
 .testimonial-card:hover {

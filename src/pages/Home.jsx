@@ -20,14 +20,35 @@ function Home() {
 
   const scrollTestimonials = (direction) => {
     if (testimonialScrollRef.current) {
-      const scrollAmount = 420;
-      if (direction === 'left') {
-        testimonialScrollRef.current.scrollLeft -= scrollAmount;
-      } else {
-        testimonialScrollRef.current.scrollLeft += scrollAmount;
+      // compute card width + gap dynamically so scrolling aligns cards perfectly
+      const scroller = testimonialScrollRef.current;
+      const grid = scroller.querySelector('.testimonials-grid');
+      const card = scroller.querySelector('.testimonial-card');
+      let scrollAmount = 420; // fallback
+      if (card && grid) {
+        const cardWidth = card.offsetWidth;
+        // get gap value from computed style (returns like "32px" or "2rem")
+        const gridStyle = window.getComputedStyle(grid);
+        const gapStr = gridStyle.gap || gridStyle.columnGap || '32px';
+        // convert gap to pixels (handles px and rem)
+        let gapPx = 32;
+        try {
+          if (gapStr.endsWith('px')) gapPx = parseFloat(gapStr);
+          else if (gapStr.endsWith('rem')) gapPx = parseFloat(gapStr) * parseFloat(getComputedStyle(document.documentElement).fontSize);
+        } catch (e) {
+          gapPx = 32;
+        }
+        // scroll by one card at a time (card width + gap)
+        scrollAmount = Math.round(cardWidth + gapPx);
       }
+
+      if (direction === 'left') scroller.scrollLeft -= scrollAmount;
+      else scroller.scrollLeft += scrollAmount;
     }
   };
+
+ 
+
 
   const testimonialData = {
     kamya: {
@@ -1125,64 +1146,44 @@ function Home() {
       {/* About Section */}
       <section className="about-section">
         <div className="container">
-          <div className="about-layout about-layout--split">
-            <div className="about-content about-content--left">
+          <div className="about-layout">
+            <div className="about-content">
               <div className="section-label">ABOUT US</div>
               <h2 className="section-title">Empowering <span className="highlight-text">50,000+ Learners</span> Across <span className="highlight-text">120+ Countries</span></h2>
               <p className="about-description">
-                BraynupAI delivers industry-aligned, project-driven programs that help learners build
-                portfolio-ready work, gain practical skills, and launch meaningful careers in AI and software.
-                We combine live mentorship, hands-on projects, and career services to ensure measurable outcomes.
+                BraynupAI is a revolutionary AI-based IT training platform designed to deliver 
+                future-ready education. We specialize in cutting-edge programs that transform careers 
+                through innovative AI-powered learning experiences.
               </p>
-
-              <div className="about-features">
-                <div className="feature-item">
-                  <div className="feature-number">1.</div>
-                  <div className="feature-body">
-                    <h5>Who We Are</h5>
-                    <p>We are a global training platform focused on practical AI and software skills that employers need.</p>
-                  </div>
+              <div className="about-stats">
+                <div className="stat-item">
+                  <div className="stat-number">50K+</div>
+                  <div className="stat-label">Active Students</div>
                 </div>
-
-                <div className="feature-item">
-                  <div className="feature-number">2.</div>
-                  <div className="feature-body">
-                    <h5>What We Do</h5>
-                    <p>We deliver bootcamp-style programs with mentorship, real projects, and hiring support.</p>
-                  </div>
+                <div className="stat-item">
+                  <div className="stat-number">95%</div>
+                  <div className="stat-label">Placement Rate</div>
                 </div>
-
-                <div className="feature-item">
-                  <div className="feature-number">3.</div>
-                  <div className="feature-body">
-                    <h5>How We Help</h5>
-                    <p>Through live coaching, hands-on labs, code reviews, and career preparation sessions.</p>
-                  </div>
+                <div className="stat-item">
+                  <div className="stat-number">120+</div>
+                  <div className="stat-label">Countries</div>
                 </div>
-
-                <div className="feature-item">
-                  <div className="feature-number">4.</div>
-                  <div className="feature-body">
-                    <h5>Success Stories</h5>
-                    <p>Students complete programs with portfolio projects and land roles at top companies.</p>
-                  </div>
+                <div className="stat-item">
+                  <div className="stat-number">150%</div>
+                  <div className="stat-label">Avg. Salary Hike</div>
                 </div>
               </div>
-
             </div>
-
-            <div className="about-media about-content--right">
-              <div className="learn-card">Learn more</div>
-              <div className="media-stack">
-                <div className="media-tile tall">
-                  <img src="/src/book.webp" alt="books" />
-                </div>
-                <div className="media-tile small">
-                  <img src="/src/coding1.jpg" alt="coding" />
-                </div>
-                <div className="media-tile tall">
-                  <img src="/src/hi.webp" alt="student" />
-                </div>
+            <div className="about-video">
+              <div className="video-wrapper">
+                <iframe
+                  src="https://www.youtube.com/embed/JMUxmLyrhSk"
+                  title="BraynupAI Education"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+                <div className="video-overlay"></div>
               </div>
             </div>
           </div>
