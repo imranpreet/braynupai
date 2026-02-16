@@ -380,6 +380,13 @@ function Home() {
     }
   };
 
+  // FAQ accordion state
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
   const openPersonModal = (person) => {
     setTestimonialModal(person);
   };
@@ -555,26 +562,32 @@ function Home() {
       {/* Quick Features Icons */}
       <section className="quick-features">
         <div className="container">
-          <div className="features-row">
-            <div className="feature-box">
-              <div className="feature-icon-circle">📖</div>
-              <div className="feature-text">300+ Online Courses</div>
-            </div>
-            <div className="feature-box">
-              <div className="feature-icon-circle">🎯</div>
-              <div className="feature-text">Lifetime Access</div>
-            </div>
-            <div className="feature-box">
-              <div className="feature-icon-circle">💰</div>
-              <div className="feature-text">Value For Money</div>
-            </div>
-            <div className="feature-box">
-              <div className="feature-icon-circle">🤝</div>
-              <div className="feature-text">Lifetime Support</div>
-            </div>
-            <div className="feature-box">
-              <div className="feature-icon-circle">👥</div>
-              <div className="feature-text">Community Support</div>
+          <div className="marquee-wrap">
+            <div className="marquee">
+              {[0,1,2].map(loop => (
+                <div className="features-row" key={loop}>
+                  <div className="feature-box">
+                    <div className="feature-icon-circle">📖</div>
+                    <div className="feature-text">300+ Online Courses</div>
+                  </div>
+                  <div className="feature-box">
+                    <div className="feature-icon-circle">🎯</div>
+                    <div className="feature-text">Lifetime Access</div>
+                  </div>
+                  <div className="feature-box">
+                    <div className="feature-icon-circle">💰</div>
+                    <div className="feature-text">Value For Money</div>
+                  </div>
+                  <div className="feature-box">
+                    <div className="feature-icon-circle">🤝</div>
+                    <div className="feature-text">Lifetime Support</div>
+                  </div>
+                  <div className="feature-box">
+                    <div className="feature-icon-circle">👥</div>
+                    <div className="feature-text">Community Support</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -1213,47 +1226,67 @@ function Home() {
       {/* About Section */}
       <section className="about-section">
         <div className="container">
-          <div className="about-layout">
-            <div className="about-content">
+          <div className="about-layout about-layout--split">
+            <div className="about-content about-content--left">
               <div className="section-label">ABOUT US</div>
               <h2 className="section-title">
                 Empowering <span className="highlight-text">50,000+ Learners</span><br />
                 Across 120+ Countries
               </h2>
               <p className="about-description">
-                BraynupAI is a revolutionary AI-based IT training platform designed to deliver 
-                future-ready education. We specialize in cutting-edge programs that transform careers 
-                through innovative AI-powered learning experiences.
+                BraynupAI delivers industry-aligned, project-driven programs that help learners build
+                portfolio-ready work, gain practical skills, and launch meaningful careers in AI and software.
+                We combine live mentorship, hands-on projects, and career services to ensure measurable outcomes.
               </p>
-              <div className="about-stats">
-                <div className="stat-item">
-                  <div className="stat-number">50K+</div>
-                  <div className="stat-label">Active Students</div>
+
+              <div className="about-features">
+                <div className="feature-item">
+                  <div className="feature-number">1.</div>
+                  <div className="feature-body">
+                    <h5>Who We Are</h5>
+                    <p>We are a global training platform focused on practical AI and software skills that employers need.</p>
+                  </div>
                 </div>
-                <div className="stat-item">
-                  <div className="stat-number">95%</div>
-                  <div className="stat-label">Placement Rate</div>
+
+                <div className="feature-item">
+                  <div className="feature-number">2.</div>
+                  <div className="feature-body">
+                    <h5>What We Do</h5>
+                    <p>We deliver bootcamp-style programs with mentorship, real projects, and hiring support.</p>
+                  </div>
                 </div>
-                <div className="stat-item">
-                  <div className="stat-number">120+</div>
-                  <div className="stat-label">Countries</div>
+
+                <div className="feature-item">
+                  <div className="feature-number">3.</div>
+                  <div className="feature-body">
+                    <h5>How We Help</h5>
+                    <p>Through live coaching, hands-on labs, code reviews, and career preparation sessions.</p>
+                  </div>
                 </div>
-                <div className="stat-item">
-                  <div className="stat-number">150%</div>
-                  <div className="stat-label">Avg. Salary Hike</div>
+
+                <div className="feature-item">
+                  <div className="feature-number">4.</div>
+                  <div className="feature-body">
+                    <h5>Success Stories</h5>
+                    <p>Students complete programs with portfolio projects and land roles at top companies.</p>
+                  </div>
                 </div>
               </div>
+
             </div>
-            <div className="about-video">
-              <div className="video-wrapper">
-                <iframe
-                  src="https://www.youtube.com/embed/JMUxmLyrhSk"
-                  title="BraynupAI Education"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-                <div className="video-overlay"></div>
+
+            <div className="about-media about-content--right">
+              <div className="learn-card">Learn more</div>
+              <div className="media-stack">
+                <div className="media-tile tall">
+                  <img src="/src/book.webp" alt="books" />
+                </div>
+                <div className="media-tile small">
+                  <img src="/src/coding1.jpg" alt="coding" />
+                </div>
+                <div className="media-tile tall">
+                  <img src="/src/hi.webp" alt="student" />
+                </div>
               </div>
             </div>
           </div>
@@ -1773,7 +1806,9 @@ function Home() {
           <div className="featured-testimonial-large" onClick={() => openPersonModal('kamya')} style={{cursor: 'pointer'}}>
             <div className="testimonial-stars">⭐⭐⭐⭐⭐</div>
             <p className="testimonial-text-large">
-              "BraynupAI's curriculum is the best curriculum available online. <span style={{color: '#999'}}>BraynupAI's program is engaging, comprehensive, and student-centered. The hands-on projects and AI integration sets it apart from other platforms. If you're serious about accelerating your tech career and mastering cutting-edge technologies,</span> <strong>you cannot ask for a better platform than BraynupAI.</strong>"
+              "BraynupAI's curriculum is the best curriculum available online. BraynupAI's program is engaging, comprehensive, and student-centered. The hands-on projects and AI integration set it clearly apart from other platforms. The curriculum is designed to produce portfolio-ready outcomes, complemented by experienced mentors who provide practical, real-world guidance. Students gain not only technical mastery but also the professional skills required to succeed in industry roles. For motivated learners aiming to accelerate their tech careers and master cutting-edge technologies, BraynupAI delivers an exceptional, outcomes-driven pathway."
+              <br /><br />
+              <strong>In short: you cannot ask for a better platform than BraynupAI.</strong>
             </p>
             <div className="testimonial-author-large">
               <div className="author-avatar-large">
@@ -2095,26 +2130,62 @@ function Home() {
           <div className="section-header-center">
             <div className="section-label">FAQ</div>
             <h2 className="section-title">Frequently Asked <span className="highlight-text">Questions</span></h2>
-            <p className="section-description">Everything you need to know about BraynupAI</p>
+            <p className="section-description">Everything you need to know about BraynupAI — our mission, programs, and student outcomes. BraynupAI delivers industry-aligned, project-driven courses in web development, data science, machine learning and AI. Each program combines live instruction with hands-on projects, one-to-one mentorship, and career services designed to produce portfolio-ready professionals. We offer flexible payment and EMI options, lifetime access to course materials, and strong placement support through hiring partners and an active alumni network. Explore these FAQs to learn more about curriculum, enrollment, outcomes, and support.</p>
           </div>
           
-          <div className="faq-list">
-            <div className="faq-item">
-              <h3>❓ Who can join these courses?</h3>
-              <p>UG & PG students, working professionals, entrepreneurs, and anyone interested in AI-powered IT skills. No prior experience required for beginner tracks.</p>
-            </div>
-            <div className="faq-item">
-              <h3>❓ What's included in the course?</h3>
-              <p>Live sessions, recorded lectures, hands-on projects, 24/7 mentor support, industry certifications, and lifetime access to all materials.</p>
-            </div>
-            <div className="faq-item">
-              <h3>❓ Is job placement guaranteed?</h3>
-              <p>Yes! We have 95% placement rate with our Job Guarantee Program. Average salary hike is 150% for our graduates.</p>
-            </div>
-            <div className="faq-item">
-              <h3>❓ What payment options are available?</h3>
-              <p>We offer flexible EMI options, one-time payment discounts, and early bird offers. Multiple payment gateways supported.</p>
-            </div>
+          {/* Grouped FAQ sections */}
+          <div className="faq-groups">
+            {[
+              {
+                title: 'General',
+                items: [
+                  {q: 'Who can join these courses?', a: 'UG & PG students, working professionals, entrepreneurs, and anyone interested in AI-powered IT skills. No prior experience required for beginner tracks.'},
+                  {q: "What's included in the course?", a: 'Live sessions, recorded lectures, hands-on projects, 24/7 mentor support, industry certifications, and lifetime access to all materials.'}
+                ]
+              },
+              {
+                title: 'Outcomes',
+                items: [
+                  {q: 'Is job placement guaranteed?', a: 'We have a strong placement program with 95%+ placement support and partnerships with hiring partners; outcomes vary by candidate performance.'},
+                  {q: 'How long until I get job-ready?', a: 'Most students complete core tracks in 4–6 months and build portfolio projects that help in hiring interviews; timelines vary by pace and prior experience.'}
+                ]
+              },
+              {
+                title: 'Payments & Support',
+                items: [
+                  {q: 'What payment options are available?', a: 'We offer flexible EMI options, one-time payment discounts, early bird offers, and multiple secure payment gateways.'},
+                  {q: 'Do you offer scholarships?', a: 'We provide merit-based scholarships and occasional promotional discounts—check enrollment pages or contact support for current offers.'}
+                ]
+              },
+              {
+                title: 'Curriculum & Mentors',
+                items: [
+                  {q: 'Who designs the curriculum?', a: 'Our curriculum is co-designed with industry experts and updated quarterly to reflect the latest tools and best practices.'},
+                  {q: 'How is mentor support delivered?', a: 'Mentor support is one-to-one via live sessions, chat, code reviews and dedicated office hours.'}
+                ]
+              }
+            ].map((group, gidx) => (
+              <div className="faq-group" key={gidx}>
+                <h4 className="faq-group-title">{group.title}</h4>
+                <div className="faq-list">
+                  {group.items.map((item, idx) => {
+                    const key = `${gidx}-${idx}`;
+                    const isOpen = openFaq === key;
+                    return (
+                      <div className={`faq-item ${isOpen ? 'open' : ''}`} key={key}>
+                        <button className="faq-toggle" onClick={() => toggleFaq(isOpen ? null : key)} aria-expanded={isOpen}>
+                          <span className="faq-q">{item.q}</span>
+                          <span className="faq-chevron">{isOpen ? '−' : '+'}</span>
+                        </button>
+                        <div className="faq-panel" style={{display: isOpen ? 'block' : 'none'}}>
+                          <p>{item.a}</p>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
