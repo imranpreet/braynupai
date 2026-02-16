@@ -20,12 +20,30 @@ function Home() {
 
   const scrollTestimonials = (direction) => {
     if (testimonialScrollRef.current) {
-      const scrollAmount = 420;
-      if (direction === 'left') {
-        testimonialScrollRef.current.scrollLeft -= scrollAmount;
-      } else {
-        testimonialScrollRef.current.scrollLeft += scrollAmount;
+      // compute card width + gap dynamically so scrolling aligns cards perfectly
+      const scroller = testimonialScrollRef.current;
+      const grid = scroller.querySelector('.testimonials-grid');
+      const card = scroller.querySelector('.testimonial-card');
+      let scrollAmount = 420; // fallback
+      if (card && grid) {
+        const cardWidth = card.offsetWidth;
+        // get gap value from computed style (returns like "32px" or "2rem")
+        const gridStyle = window.getComputedStyle(grid);
+        const gapStr = gridStyle.gap || gridStyle.columnGap || '32px';
+        // convert gap to pixels (handles px and rem)
+        let gapPx = 32;
+        try {
+          if (gapStr.endsWith('px')) gapPx = parseFloat(gapStr);
+          else if (gapStr.endsWith('rem')) gapPx = parseFloat(gapStr) * parseFloat(getComputedStyle(document.documentElement).fontSize);
+        } catch (e) {
+          gapPx = 32;
+        }
+        // scroll by one card at a time (card width + gap)
+        scrollAmount = Math.round(cardWidth + gapPx);
       }
+
+      if (direction === 'left') scroller.scrollLeft -= scrollAmount;
+      else scroller.scrollLeft += scrollAmount;
     }
   };
 
@@ -1117,37 +1135,27 @@ function Home() {
         <div className="container">
           <div className="about-layout">
             <div className="about-content">
-              <div className="section-label">ABOUT US</div>
-              <h2 className="section-title">Empowering <span className="highlight-text">50,000+ Learners</span> Across <span className="highlight-text">120+ Countries</span></h2>
-              <p className="about-description">
-                BraynupAI is a revolutionary AI-based IT training platform designed to deliver 
-                future-ready education. We specialize in cutting-edge programs that transform careers 
-                through innovative AI-powered learning experiences.
+              <div className="section-label-about">EDUCATION EXCELLENCE</div>
+              <h2 className="about-main-heading">Transforming Lives Through AI Education</h2>
+              <p className="about-description-main">
+                Education is a core pillar at BraynupAI, and one that we are constantly reviewing, innovating, and revolutionizing.
               </p>
-              <div className="about-stats">
-                <div className="stat-item">
-                  <div className="stat-number">50K+</div>
-                  <div className="stat-label">Active Students</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-number">95%</div>
-                  <div className="stat-label">Placement Rate</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-number">120+</div>
-                  <div className="stat-label">Countries</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-number">150%</div>
-                  <div className="stat-label">Avg. Salary Hike</div>
-                </div>
-              </div>
+              <p className="about-description-detail">
+                We are working towards building a more knowledgeable tomorrow, everyday, and are committed to making AI education accessible to everyone, everywhere. We've pioneered an innovative approach that combines cutting-edge technology with personalized learning experiences, including expert-led courses, hands-on projects, and the implementation of AI-powered adaptive learning that adjusts to each student's pace and style.
+              </p>
+              <p className="about-description-detail">
+                Our platform leverages machine learning algorithms to create personalized learning paths, real-time feedback systems, and predictive analytics that identify areas where students need additional support. We believe that education is more than just consuming content—it's about building practical skills, solving real-world problems, and preparing for the careers of tomorrow.
+              </p>
+              <p className="about-description-detail">
+                While we are always a work in progress, you can trust us when we say that our commitment to delivering world-class AI education is more ambitious than simply meeting industry standards—we aim to set them.
+              </p>
+              <button className="learn-more-button">LEARN MORE</button>
             </div>
             <div className="about-image-side">
-              <div className="image-wrapper-side">
+              <div className="image-wrapper-elegant">
                 <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" 
-                  alt="BraynupAI Learning Community" 
+                  src="/src/image.png" 
+                  alt="BraynupAI Success Stories" 
                   className="about-side-image"
                 />
               </div>
