@@ -550,26 +550,32 @@ function Home() {
       {/* Quick Features Icons */}
       <section className="quick-features">
         <div className="container">
-          <div className="features-row">
-            <div className="feature-box">
-              <div className="feature-icon-circle">📖</div>
-              <div className="feature-text">300+ Online Courses</div>
-            </div>
-            <div className="feature-box">
-              <div className="feature-icon-circle">🎯</div>
-              <div className="feature-text">Lifetime Access</div>
-            </div>
-            <div className="feature-box">
-              <div className="feature-icon-circle">💰</div>
-              <div className="feature-text">Value For Money</div>
-            </div>
-            <div className="feature-box">
-              <div className="feature-icon-circle">🤝</div>
-              <div className="feature-text">Lifetime Support</div>
-            </div>
-            <div className="feature-box">
-              <div className="feature-icon-circle">👥</div>
-              <div className="feature-text">Community Support</div>
+          <div className="marquee-wrap">
+            <div className="marquee">
+              {[0,1,2].map(loop => (
+                <div className="features-row" key={loop}>
+                  <div className="feature-box">
+                    <div className="feature-icon-circle">📖</div>
+                    <div className="feature-text">300+ Online Courses</div>
+                  </div>
+                  <div className="feature-box">
+                    <div className="feature-icon-circle">🎯</div>
+                    <div className="feature-text">Lifetime Access</div>
+                  </div>
+                  <div className="feature-box">
+                    <div className="feature-icon-circle">💰</div>
+                    <div className="feature-text">Value For Money</div>
+                  </div>
+                  <div className="feature-box">
+                    <div className="feature-icon-circle">🤝</div>
+                    <div className="feature-text">Lifetime Support</div>
+                  </div>
+                  <div className="feature-box">
+                    <div className="feature-icon-circle">👥</div>
+                    <div className="feature-text">Community Support</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

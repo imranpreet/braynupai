@@ -270,6 +270,33 @@
   gap: 2rem;
 }
 
+/* Marquee (continuous horizontal scroll) */
+.marquee-wrap {
+  overflow: hidden;
+  width: 100vw; /* full viewport width */
+  margin-left: calc(50% - 50vw); /* pull container to screen edges */
+  margin-right: calc(50% - 50vw);
+  padding: 0; /* remove internal gutters */
+}
+
+/* remove container gutters for this section */
+.quick-features .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 18s linear infinite;
+  gap: 4rem;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 .feature-box {
   display: flex;
   flex-direction: column;
@@ -375,6 +402,25 @@
   text-transform: uppercase;
 }
 
+/* Prominent FAQ badge styling */
+.faq-section .section-label {
+  background: rgba(255,255,255,0.9);
+  color: #e63946;
+  font-size: 1.05rem;
+  font-weight: 900;
+  padding: 0.9rem 2.2rem;
+  border-radius: 28px;
+  box-shadow: 8px 10px 30px rgba(0,0,0,0.18), -6px 6px 18px rgba(0,0,0,0.08);
+  transform-origin: center;
+  animation: faqBadgePop 1s ease-out both;
+}
+
+@keyframes faqBadgePop {
+  0% { transform: translateY(6px) scale(0.95); opacity: 0; filter: blur(2px); }
+  60% { transform: translateY(-4px) scale(1.02); opacity: 1; filter: blur(0); }
+  100% { transform: translateY(0) scale(1); opacity: 1; filter: none; }
+}
+
 .section-title {
   font-size: 3.5rem;
   font-weight: 900;
@@ -391,6 +437,16 @@
   line-height: 1.8;
   color: #666666;
   margin-bottom: 2rem;
+}
+
+/* FAQ specific: make the description bold and clearly visible over background image */
+.faq-section .section-description {
+  color: #111111;
+  font-weight: 700;
+  background: rgba(255,255,255,0.8);
+  display: inline-block;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
 }
 
 .mission-features {
@@ -2166,7 +2222,10 @@
 /* FAQ SECTION */
 .faq-section {
   padding: 8rem 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background-image: url('/src/goog.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .faq-list {
