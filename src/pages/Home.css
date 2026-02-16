@@ -15,6 +15,31 @@
   }
 }
 
+/* Section and heading overrides to match screenshot: serif display for section headings
+   Use a larger size + highlight span color (red) for emphasis. This is scoped so
+   it affects section headings across the home page without touching non-heading text. */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  font-size: 3.6rem;
+  line-height: 1.02;
+  color: #111111;
+  margin: 0.25rem 0 1rem;
+}
+
+.highlight-text {
+  color: #ff4d4f; /* red highlight used in screenshots */
+  font-weight: 800;
+}
+
+/* smaller section subtitle paired with serif heading for consistent spacing */
+.section-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  color: #666666;
+  margin-bottom: 1rem;
+}
+
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -256,7 +281,13 @@
 
 /* QUICK FEATURES SECTION */
 .quick-features {
-  padding: 3rem 0;
+  /* Reduce the top padding and pull this section up so the circular
+     feature icons visually overlap / sit flush with the hero slider.
+     This removes the small white gap visible in the screenshot. */
+  padding: 1.6rem 0 3rem; /* smaller top padding */
+  margin-top: -70px; /* pull upward to overlap the slider area */
+  position: relative;
+  z-index: 5; /* keep icons on top of slider visuals */
   background: white;
 }
 
@@ -302,33 +333,71 @@
   text-align: center;
 }
 
-/* MISSION SECTION */
+/* MISSION SECTION (updated to match screenshot design)
+   - left: rounded image card with soft large shadow
+   - center: prominent play button
+   - right: large bold title, pill label, red check bullets, CTA
+*/
 .mission-section {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 5.2rem 0; /* slightly reduced vertical padding for a tighter layout */
+  background: linear-gradient(135deg, #ffffff 0%, #fbfbfb 100%);
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
 .mission-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
-  max-width: 1400px;
+  /* make the left visual larger and the text use remaining space */
+  grid-template-columns: 55% 45%;
+  gap: 0.75rem; /* minimal gap so columns touch more closely */
+  align-items: center; /* vertically center both columns */
+  max-width: 1400px; /* allow more horizontal room so image can expand */
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 8px; /* minimal side padding */
 }
 
 .mission-image-wrapper {
   position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border-radius: 26px;
+  overflow: visible;
+  background: transparent;
+  padding: 0; /* we will use an explicit white border to form the frame */
+  display: block;
+  max-width: none; /* let the wrapper fill the column */
+  width: 100%;
+  margin: 0; /* align to grid cell start */
+  align-self: stretch; /* stretch to full column height */
+  /* small visual pull to the left but keep it minimal so margin is tiny */
+  transform: translateX(-4%);
+}
+
+.mission-image-frame {
+  background: white;
+  border-radius: 22px;
+  padding: 16px; /* slightly tighter frame padding so image appears larger */
+  display: block;
+  box-shadow: 0 40px 90px rgba(19, 24, 31, 0.06), 0 14px 36px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.mission-image-frame::after {
+  /* subtle outer soft shadow */
+  content: '';
+  position: absolute;
+  inset: -18px; /* reduced inset so shadow margin is smaller */
+  border-radius: 28px;
+  box-shadow: 0 50px 100px rgba(0,0,0,0.06);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .mission-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  border-radius: 12px;
+  position: relative;
+  z-index: 2;
+  object-fit: cover; /* ensure the image fills the taller wrapper */
 }
 
 .mission-play-button {
@@ -336,67 +405,275 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, #e63946, #c1121f);
+  width: 84px;
+  height: 84px;
+  background: linear-gradient(135deg, #ff6b6f, #e63946);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(230, 57, 70, 0.5);
+  transition: all 0.2s cubic-bezier(.2,.9,.3,1);
+  box-shadow: 0 24px 48px rgba(230,57,70,0.16), 0 8px 26px rgba(0,0,0,0.12);
+  z-index: 6;
 }
 
 .mission-play-button:hover {
-  transform: translate(-50%, -50%) scale(1.15);
+  transform: translate(-50%, -50%) scale(1.08);
 }
 
 .play-icon {
-  color: white;
-  font-size: 1.5rem;
-  margin-left: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mission-right {
-  padding: 2rem 0;
+  padding: 6px 10px 6px 28px; /* small horizontal padding so text breathes */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center text to the image */
+  align-self: stretch;
+  text-align: left; /* ensure paragraph lines align left beneath the title on desktop */
+}
+
+/* Ensure content text column uses available space and doesn't appear narrow */
+.mission-right .section-title,
+.mission-right .section-description {
+  max-width: 100%;
+}
+
+/* Responsive adjustments: stack vertically on smaller screens */
+@media (max-width: 992px) {
+  .mission-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .mission-image-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    transform: none; /* remove horizontal pull on mobile */
+  }
+
+  .mission-right {
+    text-align: center;
+  }
 }
 
 .section-label {
   display: inline-block;
-  padding: 0.75rem 2rem;
-  background: rgba(230, 57, 70, 0.1);
+  padding: 0.6rem 1.6rem;
+  background: rgba(230, 57, 70, 0.08);
   color: #e63946;
-  font-size: 1.1rem;
-  font-weight: 700;
-  border-radius: 50px;
-  margin-bottom: 1.5rem;
-  letter-spacing: 1.5px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  border-radius: 40px;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .section-title {
-  font-size: 3.5rem;
+  font-size: 4.6rem;
   font-weight: 900;
-  line-height: 1.3;
-  color: #1a1a1a;
-  margin-bottom: 1.5rem;
+  line-height: 1.02;
+  color: #0f1720;
+  margin-bottom: 1.25rem;
   animation: fadeInUp 0.8s ease-out;
-  word-spacing: normal;
   text-align: left;
+  letter-spacing: -0.02em;
 }
 
 .section-description {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   line-height: 1.8;
-  color: #666666;
-  margin-bottom: 2rem;
+  color: #7a7a7a;
+  margin-bottom: 1.75rem;
 }
 
 .mission-features {
   list-style: none;
   padding: 0;
-  margin: 2rem 0;
+  margin: 1.75rem 0 2rem 0;
+}
+
+/* Stronger, mission-specific overrides to prevent later generic rules from clobbering styles */
+.mission-section .mission-image-wrapper {
+  display: block;
+}
+
+.mission-section .mission-image-frame {
+  padding: 20px; /* frame thickness */
+  border-radius: 24px;
+  box-shadow: 0 70px 140px rgba(0,0,0,0.06), 0 24px 60px rgba(0,0,0,0.08);
+}
+
+.mission-section .mission-play-button {
+  width: 88px;
+  height: 88px;
+}
+
+.mission-section .section-title {
+  font-size: 3.6rem;
+  font-weight: 900;
+  line-height: 1.04;
+  color: #0f1720;
+}
+
+.mission-section .section-description {
+  color: #7a7a7a;
+}
+
+.mission-section .mission-features li {
+  font-size: 1rem;
+}
+
+/* Feature Showcase section - styles to match the second screenshot */
+.feature-showcase-section {
+  padding: 3.5rem 0 5rem;
+  background: transparent;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.feature-showcase-section .showcase-top {
+  /* center the intro and the small pill cards like the provided screenshot */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1180px;
+  margin: 0 auto 0; /* pull cards closer to images */
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.showcase-intro {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #e63946;
+  font-weight: 800;
+  background: rgba(230,57,70,0.08);
+  padding: 0.45rem 1rem;
+  border-radius: 28px;
+}
+
+.showcase-cards {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.showcase-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: white;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  min-width: 220px;
+}
+
+.showcase-card .card-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#ff6b6f,#e63946);
+  color: white;
+  font-weight: 700;
+}
+
+.showcase-card .card-text {
+  font-weight: 700;
+  color: #222;
+}
+
+.showcase-images {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 2rem;
+  max-width: 1180px; /* narrower center layout like screenshot */
+  margin: 1.2rem auto 0; /* create a small gap from pills */
+  padding: 0 2rem;
+  align-items: center;
+}
+
+.showcase-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.showcase-image.large {
+  min-height: 360px;
+  border-radius: 18px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.06);
+}
+.showcase-image.small {
+  min-height: 260px;
+  border-radius: 14px;
+  box-shadow: 0 18px 46px rgba(0,0,0,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(12%); /* pull the small thumb slightly to the right so it overlaps */
+}
+
+/* make the top intro pill sit visually above the image group */
+.feature-showcase-section .showcase-intro {
+  transform: translateY(6px);
+}
+
+.showcase-image.small {
+  min-height: 240px;
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  background: linear-gradient(135deg,#ff6b6f,#e63946);
+  border-radius: 50%;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 18px 40px rgba(230,57,70,0.14), 0 8px 26px rgba(0,0,0,0.12);
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .showcase-images {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-showcase-section .showcase-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .showcase-cards {
+    width: 100%;
+    overflow-x: auto;
+  }
 }
 
 .mission-features li {
@@ -428,6 +705,31 @@
   padding: 6rem 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
+
+/* Scoped overrides: make all red elements inside Popular Courses darker
+   without changing global styles used in other sections. */
+.popular-courses-section .compact-enroll-btn,
+.popular-courses-section .hover-enroll-btn,
+.popular-courses-section .cta-primary {
+  background: linear-gradient(135deg, #ff4d4f 0%, #c1121f 100%);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(193, 17, 31, 0.28);
+}
+
+.popular-courses-section .compact-enroll-btn:hover,
+.popular-courses-section .hover-enroll-btn:hover,
+.popular-courses-section .cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(193, 17, 31, 0.38);
+}
+
+.popular-courses-section .price-now {
+  background: linear-gradient(135deg, #ff4d4f 0%, #c1121f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 
 .section-header-center {
   text-align: center;
@@ -481,14 +783,14 @@
 }
 
 .category-btn:hover {
-  border-color: #e63946;
-  color: #e63946;
+  border-color: #c1121f;
+  color: #c1121f;
 }
 
 .category-btn.active {
-  background: linear-gradient(135deg, #e63946, #c1121f);
+  background: linear-gradient(135deg, #ff4d4f, #c1121f);
   color: white;
-  border-color: #e63946;
+  border-color: #c1121f;
 }
 
 .courses-grid {
@@ -544,7 +846,7 @@
 }
 
 .badge-red {
-  background: linear-gradient(135deg, #e63946, #c1121f);
+  background: linear-gradient(135deg, #ff4d4f, #c1121f);
   color: white;
 }
 
@@ -600,7 +902,7 @@
 .author-avatar {
   width: 35px;
   height: 35px;
-  background: linear-gradient(135deg, #e63946, #c1121f);
+  background: linear-gradient(135deg, #ff4d4f, #c1121f);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -618,7 +920,7 @@
 .course-price {
   font-size: 1.1rem;
   font-weight: 900;
-  color: #e63946;
+  color: #c1121f;
 }
 
 .view-all-section {
@@ -863,6 +1165,10 @@
   display: inline-block;
 }
 
+/* Stack the section content vertically and center-align for the
+   "Why Choose Us" section so the dots always render below the cards.
+   This targets only the container inside .why-choose-section to avoid
+   affecting global `.container` behaviour elsewhere. */
 .why-grid-animated {
   display: flex;
   gap: 2rem;
@@ -870,8 +1176,85 @@
   position: relative;
   z-index: 1;
   width: max-content;
-  animation: scrollLeftContinuous 40s linear infinite;
+  /* Enable continuous smooth auto scroll animation */
+  animation: scrollLeftContinuous 30s linear infinite;
 }
+
+/* make the card row horizontally scrollable with hidden scrollbar for smooth animation */
+.why-choose-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 48px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.why-choose-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Navigation buttons for why choose cards */
+.why-cards-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.why-nav-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4d4f, #c1121f);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(193, 17, 31, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-nav-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(193, 17, 31, 0.5);
+}
+
+.why-nav-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Pause animation on hover to allow manual navigation */
+.why-choose-wrapper:hover .why-grid-animated {
+  animation-play-state: paused;
+}
+
+/* Cards nav centered below the cards */
+.cards-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  margin-top: 18px;
+}
+
+.cards-dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 
 @keyframes scrollLeftContinuous {
   0% {
@@ -3679,12 +4062,13 @@
 .courses-stats-banner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin: 80px 0 60px;
+  gap: 2px;
+  margin: 80px auto 60px;
   padding: 0;
-  background: linear-gradient(135deg, #ff3b3b 0%, #ff5252 50%, #ff6b6b 100%);
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(255, 59, 59, 0.35);
+  max-width: 1200px;
+  background: linear-gradient(135deg, #ff4d4f 0%, #c1121f 100%);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(193, 17, 31, 0.25);
   overflow: hidden;
   position: relative;
   z-index: 2;
@@ -3697,52 +4081,54 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1.5" fill="%23ffffff" opacity="0.1"/></svg>');
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
   pointer-events: none;
 }
 
 .stat-box {
   text-align: center;
   color: #fff;
-  padding: 50px 30px;
+  padding: 48px 30px;
   position: relative;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .stat-box:not(:last-child)::after {
   content: '';
   position: absolute;
   right: 0;
-  top: 30%;
-  height: 40%;
+  top: 25%;
+  height: 50%;
   width: 1px;
-  background: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
 .stat-box:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .stat-number {
-  font-size: 56px;
+  font-size: 52px;
   font-weight: 900;
-  margin-bottom: 12px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.85) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -1px;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  font-family: 'Poppins', sans-serif;
 }
 
 .stat-label {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   opacity: 0.95;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Inter', sans-serif;
 }
 
 .view-all-section {
@@ -3753,9 +4139,18 @@
 }
 
 .cta-btn.large {
-  padding: 18px 40px;
+  padding: 18px 45px;
   font-size: 17px;
   border-radius: 12px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff4d4f, #c1121f);
+  box-shadow: 0 8px 25px rgba(193, 17, 31, 0.35);
+  transition: all 0.3s ease;
+}
+
+.cta-btn.large:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(193, 17, 31, 0.45);
 }
 
 .courses-note {
@@ -3805,34 +4200,38 @@
   
   .courses-stats-banner {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-    margin: 50px 0 40px;
+    gap: 1px;
+    margin: 50px 15px 40px;
+    border-radius: 16px;
   }
   
   .stat-box {
-    padding: 40px 20px;
+    padding: 36px 20px;
   }
   
-  .stat-box:nth-child(2)::after,
-  .stat-box:nth-child(4)::after {
+  .stat-box:nth-child(2)::after {
     display: none;
   }
   
   .stat-box:nth-child(1)::after,
-  .stat-box:nth-child(2)::after {
-    bottom: 0;
-    top: auto;
-    height: 1px;
-    width: 100%;
-    left: 0;
+  .stat-box:nth-child(3)::after {
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
   }
   
   .stat-number {
-    font-size: 42px;
+    font-size: 44px;
   }
   
   .stat-label {
-    font-size: 13px;
+    font-size: 12px;
+  }
+  
+  .cta-btn.large {
+    padding: 16px 35px;
+    font-size: 16px;
   }
 }
 
@@ -3862,6 +4261,40 @@
   
   .courses-stats-banner {
     grid-template-columns: 1fr;
+    gap: 1px;
+    margin: 40px 10px 30px;
+  }
+  
+  .stat-box {
+    padding: 32px 20px;
+  }
+  
+  .stat-box:not(:last-child)::after {
+    right: auto;
+    left: 25%;
+    top: auto;
+    bottom: 0;
+    height: 1px;
+    width: 50%;
+  }
+  
+  .stat-number {
+    font-size: 40px;
+  }
+  
+  .stat-label {
+    font-size: 11px;
+  }
+  
+  .cta-btn.large {
+    padding: 14px 30px;
+    font-size: 15px;
+    width: 90%;
+  }
+  
+  .courses-note {
+    font-size: 13px;
+    padding: 0 15px;
   }
 }
 

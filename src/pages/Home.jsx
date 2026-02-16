@@ -9,6 +9,7 @@ function Home() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const testimonialScrollRef = useRef(null);
   const [testimonialModal, setTestimonialModal] = useState(null);
+  const whyCardsRef = useRef(null);
 
   const handleCardHover = (cardId) => {
     setHoveredCard(cardId);
@@ -16,6 +17,17 @@ function Home() {
 
   const handleCardLeave = () => {
     setHoveredCard(null);
+  };
+
+  const scrollWhyCards = (direction) => {
+    if (whyCardsRef.current) {
+      const scrollAmount = 400;
+      if (direction === 'left') {
+        whyCardsRef.current.scrollLeft -= scrollAmount;
+      } else {
+        whyCardsRef.current.scrollLeft += scrollAmount;
+      }
+    }
   };
 
   const scrollTestimonials = (direction) => {
@@ -575,9 +587,6 @@ function Home() {
             <div className="mission-left">
               <div className="mission-image-wrapper">
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop" alt="Students learning together" className="mission-image" />
-                <div className="mission-play-button">
-                  <div className="play-icon">▶</div>
-                </div>
               </div>
             </div>
             <div className="mission-right">
@@ -585,7 +594,7 @@ function Home() {
               <h2 className="section-title">Dive into our Online Courses<br />and Ignite Your Learning!</h2>
               <p className="section-description">
                 BraynupAI is a revolutionary AI-based IT training platform designed to deliver 
-                future-ready education. We specialize in cutting-edge programs that transform careers.
+                future-ready education.We specialize in cutting-edge programs that transform careers.
               </p>
               <ul className="mission-features">
                 <li>
@@ -831,7 +840,7 @@ function Home() {
             {/* Course 1 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&q=80" alt="AI & Machine Learning" />
+                <img src="/src/img.jpg" alt="AI Engineering" />
                 <div className="course-badge-compact bestseller">BESTSELLER</div>
               </div>
               <div className="compact-course-info">
@@ -855,7 +864,7 @@ function Home() {
             {/* Course 2 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop&q=80" alt="Full Stack Development" />
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop" alt="Full Stack" />
                 <div className="course-badge-compact hot">HOT 🔥</div>
               </div>
               <div className="compact-course-info">
@@ -901,7 +910,7 @@ function Home() {
             {/* Course 3 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80" alt="Data Science" />
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" alt="Data Science" />
                 <div className="course-badge-compact new">NEW</div>
               </div>
               <div className="compact-course-info">
@@ -918,7 +927,7 @@ function Home() {
                   <span className="price-original">₹44,999</span>
                   <span className="price-now">₹17,999</span>
                 </div>
-                <button className="compact-enroll-btn">Enroll Now</button>
+                <button className="compact-enroll-btn" onClick={() => navigate('/course/data-science-masterclass')}>Enroll Now</button>
               </div>
               
               <div className="hover-detail-card">
@@ -940,14 +949,14 @@ function Home() {
                     <div className="instructor-role">Data Scientist, Amazon</div>
                   </div>
                 </div>
-                <button className="hover-enroll-btn">Enroll Now - ₹17,999</button>
+                <button className="hover-enroll-btn" onClick={() => navigate('/course/data-science-masterclass')}>Enroll Now - ₹17,999</button>
               </div>
             </div>
 
             {/* Course 4 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&h=400&fit=crop&q=80" alt="DevOps" />
+                <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=400&h=300&fit=crop" alt="DevOps" />
                 <div className="course-badge-compact trending">TRENDING</div>
               </div>
               <div className="compact-course-info">
@@ -964,7 +973,7 @@ function Home() {
                   <span className="price-original">₹54,999</span>
                   <span className="price-now">₹21,999</span>
                 </div>
-                <button className="compact-enroll-btn">Enroll Now</button>
+                <button className="compact-enroll-btn" onClick={() => navigate('/course/devops-cloud')}>Enroll Now</button>
               </div>
               
               <div className="hover-detail-card">
@@ -986,14 +995,14 @@ function Home() {
                     <div className="instructor-role">DevOps Lead, Netflix</div>
                   </div>
                 </div>
-                <button className="hover-enroll-btn">Enroll Now - ₹21,999</button>
+                <button className="hover-enroll-btn" onClick={() => navigate('/course/devops-cloud')}>Enroll Now - ₹21,999</button>
               </div>
             </div>
 
             {/* Course 5 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&q=80" alt="UI/UX Design" />
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop" alt="UI/UX Design" />
                 <div className="course-badge-compact new">NEW</div>
               </div>
               <div className="compact-course-info">
@@ -1010,7 +1019,7 @@ function Home() {
                   <span className="price-original">₹34,999</span>
                   <span className="price-now">₹12,999</span>
                 </div>
-                <button className="compact-enroll-btn">Enroll Now</button>
+                <button className="compact-enroll-btn" onClick={() => navigate('/course/ui-ux-figma')}>Enroll Now</button>
               </div>
               
               <div className="hover-detail-card">
@@ -1032,14 +1041,14 @@ function Home() {
                     <div className="instructor-role">Lead Designer, Adobe</div>
                   </div>
                 </div>
-                <button className="hover-enroll-btn">Enroll Now - ₹12,999</button>
+                <button className="hover-enroll-btn" onClick={() => navigate('/course/ui-ux-figma')}>Enroll Now - ₹12,999</button>
               </div>
             </div>
 
             {/* Course 6 */}
             <div className="compact-course-card">
               <div className="compact-course-image">
-                <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop&q=80" alt="Blockchain" />
+                <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop" alt="Blockchain" />
                 <div className="course-badge-compact hot">HOT 🔥</div>
               </div>
               <div className="compact-course-info">
@@ -1056,7 +1065,7 @@ function Home() {
                   <span className="price-original">₹59,999</span>
                   <span className="price-now">₹24,999</span>
                 </div>
-                <button className="compact-enroll-btn">Enroll Now</button>
+                <button className="compact-enroll-btn" onClick={() => navigate('/course/blockchain-web3')}>Enroll Now</button>
               </div>
               
               <div className="hover-detail-card">
@@ -1078,7 +1087,99 @@ function Home() {
                     <div className="instructor-role">Blockchain Dev, Coinbase</div>
                   </div>
                 </div>
-                <button className="hover-enroll-btn">Enroll Now - ₹24,999</button>
+                <button className="hover-enroll-btn" onClick={() => navigate('/course/blockchain-web3')}>Enroll Now - ₹24,999</button>
+              </div>
+            </div>
+
+            {/* Course 7 */}
+            <div className="compact-course-card">
+              <div className="compact-course-image">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300&fit=crop" alt="Digital Marketing" />
+                <div className="course-badge-compact bestseller">BESTSELLER</div>
+              </div>
+              <div className="compact-course-info">
+                <div className="course-rating-compact">
+                  <span className="stars-compact">⭐⭐⭐⭐⭐</span>
+                  <span className="rating-num">(4.8)</span>
+                </div>
+                <h3 className="compact-course-title">Digital Marketing & SEO Mastery</h3>
+                <div className="compact-course-meta">
+                  <span className="meta-item">📚 35 Hours</span>
+                  <span className="meta-item">👥 6.1K</span>
+                </div>
+                <div className="compact-course-price">
+                  <span className="price-original">₹29,999</span>
+                  <span className="price-now">₹9,999</span>
+                </div>
+                <button className="compact-enroll-btn" onClick={() => navigate('/course/digital-marketing-seo')}>Enroll Now</button>
+              </div>
+              
+              <div className="hover-detail-card">
+                <div className="hover-header">
+                  <h3>Digital Marketing & SEO Mastery 2026</h3>
+                  <span className="close-hover">✕</span>
+                </div>
+                <p className="hover-desc">Master SEO, Social Media, Google Ads, Email Marketing. Grow businesses online effectively.</p>
+                <div className="hover-features">
+                  <div className="feature">✓ Campaign Projects</div>
+                  <div className="feature">✓ Google Certified</div>
+                  <div className="feature">✓ Real Campaigns</div>
+                  <div className="feature">✓ Certificate</div>
+                </div>
+                <div className="hover-instructor">
+                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&h=60&fit=crop" alt="Instructor" />
+                  <div>
+                    <div className="instructor-name-hover">Divya Rao</div>
+                    <div className="instructor-role">Marketing Lead, HubSpot</div>
+                  </div>
+                </div>
+                <button className="hover-enroll-btn" onClick={() => navigate('/course/digital-marketing-seo')}>Enroll Now - ₹9,999</button>
+              </div>
+            </div>
+
+            {/* Course 8 */}
+            <div className="compact-course-card">
+              <div className="compact-course-image">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop" alt="Cybersecurity" />
+                <div className="course-badge-compact trending">TRENDING</div>
+              </div>
+              <div className="compact-course-info">
+                <div className="course-rating-compact">
+                  <span className="stars-compact">⭐⭐⭐⭐⭐</span>
+                  <span className="rating-num">(4.9)</span>
+                </div>
+                <h3 className="compact-course-title">Cybersecurity & Ethical Hacking</h3>
+                <div className="compact-course-meta">
+                  <span className="meta-item">📚 52 Hours</span>
+                  <span className="meta-item">👥 3.2K</span>
+                </div>
+                <div className="compact-course-price">
+                  <span className="price-original">₹49,999</span>
+                  <span className="price-now">₹19,999</span>
+                </div>
+                <button className="compact-enroll-btn" onClick={() => navigate('/course/cybersecurity-ethical-hacking')}>Enroll Now</button>
+              </div>
+              
+              <div className="hover-detail-card">
+                <div className="hover-header">
+                  <h3>Cybersecurity & Ethical Hacking Complete Course</h3>
+                  <span className="close-hover">✕</span>
+                </div>
+                <p className="hover-desc">Learn penetration testing, network security, ethical hacking. Become a certified security expert.</p>
+                <div className="hover-features">
+                  <div className="feature">✓ Penetration Testing</div>
+                  <div className="feature">✓ CEH Certified</div>
+                  <div className="feature">✓ Real Lab Access</div>
+                  <div className="feature">✓ Certificate</div>
+                </div>
+                <div className="hover-instructor">
+                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=60&h=60&fit=crop" alt="Instructor" />
+                  <div>
+                    <div className="instructor-name-hover">Vikram Reddy</div>
+                    <div className="instructor-role">Security Expert, Cisco</div>
+                  </div>
+                </div>
+                <button className="hover-enroll-btn" onClick={() => navigate('/course/cybersecurity-ethical-hacking')}>Enroll Now - ₹19,999</button>
               </div>
             </div>
           </div>
@@ -1115,7 +1216,10 @@ function Home() {
           <div className="about-layout">
             <div className="about-content">
               <div className="section-label">ABOUT US</div>
-              <h2 className="section-title">Empowering <span className="highlight-text">50,000+ Learners</span> Across <span className="highlight-text">120+ Countries</span></h2>
+              <h2 className="section-title">
+                Empowering <span className="highlight-text">50,000+ Learners</span><br />
+                Across 120+ Countries
+              </h2>
               <p className="about-description">
                 BraynupAI is a revolutionary AI-based IT training platform designed to deliver 
                 future-ready education. We specialize in cutting-edge programs that transform careers 
@@ -1161,11 +1265,12 @@ function Home() {
         <div className="container">
           <div className="section-header-center">
             <div className="section-label-bold">WHY CHOOSE US</div>
-            <h2 className="section-title">10 Reasons to Start Your <span className="highlight-text">AI Journey</span> With Us</h2>
             <p className="section-subtitle">Discover what makes BraynupAI the perfect choice for your learning journey</p>
+            <h2 className="section-title">10 Reasons to Start Your <span className="highlight-text">AI Journey</span> With Us</h2>
           </div>
           
-          <div className="why-grid-animated"> 
+          <div className="why-choose-wrapper" ref={whyCardsRef}>
+            <div className="why-grid-animated"> 
             {/* Card 5: Flexible Learning - Most Popular */}
             <div 
               className={`why-card most-popular slide-in ${hoveredCard === 5 ? 'card-hovered' : ''}`}
@@ -1406,6 +1511,199 @@ function Home() {
                 <button className="join-community-btn">Join Community →</button>
               </div>
             </div>
+            
+            {/* Duplicate cards for seamless infinite loop */}
+            {/* Card 5 Duplicate */}
+            <div className={`why-card most-popular slide-in ${hoveredCard === 5 ? 'card-hovered' : ''}`} onMouseEnter={() => handleCardHover(5)} onMouseLeave={handleCardLeave}>
+              <div className="popular-badge">⭐ Most Popular</div>
+              <div className="card-image"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=200&fit=crop" alt="Flexible Learning" /></div>
+              <div className="why-icon">⏰</div>
+              <h3>Flexible Learning</h3>
+              <p>Self-paced courses with lifetime access and 24/7 support</p>
+              <div className="card-hover-details">
+                <p className="hover-description">Connect with a diverse community of AI enthusiasts, professionals, and thought leaders. Collaborate on projects, share knowledge, and build lasting professional relationships.</p>
+                <ul>
+                  <li>50,000+ active learners worldwide</li>
+                  <li>24/7 community support and discussions</li>
+                  <li>Monthly networking events and webinars</li>
+                  <li>Exclusive access to alumni network</li>
+                </ul>
+                <button className="join-community-btn">Join Community →</button>
+              </div>
+            </div>
+            
+            {/* Card 6 Duplicate */}
+            <div className={`why-card slide-in ${hoveredCard === 6 ? 'card-hovered' : ''}`} onMouseEnter={() => handleCardHover(6)} onMouseLeave={handleCardLeave}>
+              <div className="card-image"><img src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?w=400&h=200&fit=crop" alt="Certifications" /></div>
+              <div className="why-icon">🏅</div>
+              <h3>Certifications</h3>
+              <p>Industry-recognized certificates verified by blockchain</p>
+              <div className="card-hover-details">
+                <p className="hover-description">Earn globally recognized certifications that validate your skills and boost your career prospects with blockchain-verified credentials.</p>
+                <ul>
+                  <li>Blockchain verified certificates</li>
+                  <li>Industry-recognized credentials</li>
+                  <li>Shareable on LinkedIn & platforms</li>
+                  <li>Enhance your professional portfolio</li>
+                </ul>
+                <button className="join-community-btn">Get Certified →</button>
+              </div>
+            </div>
+            
+            {/* Card 7 Duplicate */}
+            <div className={`why-card slide-in ${hoveredCard === 7 ? 'card-hovered' : ''}`} onMouseEnter={() => handleCardHover(7)} onMouseLeave={handleCardLeave}>
+              <div className="card-image"><img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=200&fit=crop" alt="Cutting-Edge Curriculum" /></div>
+              <div className="why-icon">🚀</div>
+              <h3>Cutting-Edge Curriculum</h3>
+              <p>Stay ahead with latest AI trends, tools, and technologies</p>
+              <div className="card-hover-details">
+                <p className="hover-description">Master the latest AI technologies and industry-relevant tools with our continuously updated curriculum designed by experts.</p>
+                <ul>
+                  <li>Latest AI technologies & frameworks</li>
+                  <li>Industry-relevant tools & practices</li>
+                  <li>Regularly updated content</li>
+                  <li>Future-proof your career skills</li>
+                </ul>
+                <button className="join-community-btn">Explore Curriculum →</button>
+              </div>
+            </div>
+            
+            {/* Card 8 Duplicate */}
+            <div className={`why-card slide-in ${hoveredCard === 8 ? 'card-hovered' : ''}`} onMouseEnter={() => handleCardHover(8)} onMouseLeave={handleCardLeave}>
+              <div className="card-image"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop" alt="Personalized Mentorship" /></div>
+              <div className="why-icon">👨‍🏫</div>
+              <h3>Personalized Mentorship</h3>
+              <p>One-on-one guidance from dedicated mentors throughout your journey</p>
+              <div className="card-hover-details">
+                <p className="hover-description">Receive personalized guidance from experienced AI professionals who provide dedicated support throughout your learning journey.</p>
+                <ul>
+                  <li>1-on-1 mentoring sessions with experts</li>
+                  <li>Personalized learning roadmap & goals</li>
+                  <li>Career guidance and interview prep</li>
+                  <li>Direct access to industry professionals</li>
+                </ul>
+                <button className="join-community-btn">Meet Mentors →</button>
+              </div>
+            </div>
+            
+            {/* Card 9 Duplicate */}
+            <div className={`why-card slide-in ${hoveredCard === 9 ? 'card-hovered' : ''}`} onMouseEnter={() => handleCardHover(9)} onMouseLeave={handleCardLeave}>
+              <div className="card-image"><img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=200&fit=crop" alt="Affordable Pricing" /></div>
+              <div className="why-icon">💰</div>
+              <h3>Affordable Pricing</h3>
+              <p>Premium education at competitive prices with flexible payment options</p>
+              <div className="card-hover-details">
+                <p className="hover-description">Get access to world-class AI education without breaking the bank. Flexible payment plans and scholarships available.</p>
+                <ul>
+                  <li>Competitive pricing with high value</li>
+                  <li>EMI options & flexible payments</li>
+                  <li>Scholarships for deserving candidates</li>
+                  <li>Money-back guarantee available</li>
+                </ul>
+                <button className="join-community-btn">View Pricing →</button>
+              </div>
+            </div>
+            
+            {/* Card 10 Duplicate */}
+            <div className={`why-card slide-in ${hoveredCard === 10 ? 'card-hovered' : ''}`} onMouseEnter={() => handleCardHover(10)} onMouseLeave={handleCardLeave}>
+              <div className="card-image"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=200&fit=crop" alt="Continuous Updates" /></div>
+              <div className="why-icon">🔄</div>
+              <h3>Continuous Updates</h3>
+              <p>Access to new content and features added regularly at no extra cost</p>
+              <div className="card-hover-details">
+                <p className="hover-description">Stay current with the ever-evolving AI landscape. Get free lifetime updates with new modules and content additions.</p>
+                <ul>
+                  <li>Regular content updates & additions</li>
+                  <li>Access to new courses & modules</li>
+                  <li>Lifetime access to all updates</li>
+                  <li>No additional charges for new content</li>
+                </ul>
+                <button className="join-community-btn">Learn More →</button>
+              </div>
+            </div>
+            
+            {/* Card 1 Duplicate */}
+            <div className={`why-card slide-in ${hoveredCard === 1 ? 'card-hovered' : ''}`} onMouseEnter={() => handleCardHover(1)} onMouseLeave={handleCardLeave}>
+              <div className="card-image"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop" alt="Expert Faculty" /></div>
+              <div className="why-icon">🎓</div>
+              <h3>Expert Faculty</h3>
+              <p>Learn from industry professionals with 10+ years of AI experience</p>
+              <div className="card-hover-details">
+                <p className="hover-description">Our instructors are seasoned AI professionals from top tech companies with extensive real-world experience.</p>
+                <ul>
+                  <li>Faculty from Google, Microsoft, Amazon</li>
+                  <li>10+ years of industry experience</li>
+                  <li>PhD holders & research scientists</li>
+                  <li>Active contributors to AI community</li>
+                </ul>
+                <button className="join-community-btn">Meet Faculty →</button>
+              </div>
+            </div>
+            
+            {/* Card 2 Duplicate */}
+            <div className={`why-card slide-in ${hoveredCard === 2 ? 'card-hovered' : ''}`} onMouseEnter={() => handleCardHover(2)} onMouseLeave={handleCardLeave}>
+              <div className="card-image"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=200&fit=crop" alt="Job Guarantee" /></div>
+              <div className="why-icon">💼</div>
+              <h3>Job Guarantee</h3>
+              <p>95% placement rate with top companies like Google, Microsoft, Amazon</p>
+              <div className="card-hover-details">
+                <p className="hover-description">Our proven placement record speaks for itself. Join thousands of alumni working at leading tech companies worldwide.</p>
+                <ul>
+                  <li>95% placement success rate</li>
+                  <li>Average salary: ₹12-18 LPA</li>
+                  <li>Hiring partners: 500+ companies</li>
+                  <li>Dedicated career support team</li>
+                </ul>
+                <button className="join-community-btn">View Placements →</button>
+              </div>
+            </div>
+            
+            {/* Card 3 Duplicate */}
+            <div className={`why-card slide-in ${hoveredCard === 3 ? 'card-hovered' : ''}`} onMouseEnter={() => handleCardHover(3)} onMouseLeave={handleCardLeave}>
+              <div className="card-image"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=200&fit=crop" alt="Hands-On Projects" /></div>
+              <div className="why-icon">🚀</div>
+              <h3>Hands-On Projects</h3>
+              <p>Build real-world AI projects and deploy to production</p>
+              <div className="card-hover-details">
+                <p className="hover-description">Gain practical experience by building and deploying production-ready AI applications and models from day one.</p>
+                <ul>
+                  <li>15+ real-world AI projects</li>
+                  <li>Deploy models to cloud platforms</li>
+                  <li>Build impressive portfolio</li>
+                  <li>Work on live industry problems</li>
+                </ul>
+                <button className="join-community-btn">View Projects →</button>
+              </div>
+            </div>
+            
+            {/* Card 4 Duplicate */}
+            <div className={`why-card slide-in ${hoveredCard === 4 ? 'card-hovered' : ''}`} onMouseEnter={() => handleCardHover(4)} onMouseLeave={handleCardLeave}>
+              <div className="card-image"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=200&fit=crop" alt="Global Network" /></div>
+              <div className="why-icon">🌐</div>
+              <h3>Global Network</h3>
+              <p>Join 50,000+ learners from 120+ countries worldwide</p>
+              <div className="card-hover-details">
+                <p className="hover-description">Connect with a diverse community of AI enthusiasts and professionals from around the globe. Build relationships that last beyond your course completion.</p>
+                <ul>
+                  <li>50,000+ active learners worldwide</li>
+                  <li>24/7 community support and discussions</li>
+                  <li>Monthly networking events and webinars</li>
+                  <li>Exclusive access to alumni network</li>
+                </ul>
+                <button className="join-community-btn">Join Community →</button>
+              </div>
+            </div>
+          </div>
+          </div>
+          
+          {/* Navigation Buttons for Why Choose Cards */}
+          <div className="why-cards-nav">
+            <button className="why-nav-btn why-nav-prev" onClick={() => scrollWhyCards('left')} aria-label="Previous cards">
+              ←
+            </button>
+            <button className="why-nav-btn why-nav-next" onClick={() => scrollWhyCards('right')} aria-label="Next cards">
+              →
+            </button>
           </div>
         </div>
       </section>
