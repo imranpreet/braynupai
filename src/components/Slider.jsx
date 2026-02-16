@@ -5,6 +5,7 @@ import slide2 from '../dusrislide.jpg';
 import slide3 from '../3rdslide.jpg';
 import slide4 from '../4thslide.jpg';
 import slide5 from '../1stslide.jpg';
+import aie from '../aie.jpg';
 
 function HeroSlider() {
   const slides = [
@@ -59,6 +60,10 @@ function HeroSlider() {
       title: 'Transform Your Future with AI',
       boldTitle: 'Watch Our Success Stories',
       description: 'See how our students landed jobs at Google, Microsoft, and Amazon. Learn from industry experts and build real-world AI projects.',
+      /* extended copy to give more context and fill the left column so the
+         text block expands and covers the gap between the copy and the
+         rotating collage on the right */
+      extra: 'Our programs combine mentor-led sessions, real-world capstone projects, and interview preparation. Students graduate with hands-on experience, portfolio-ready projects, and industry connections that accelerate hiring timelines. Explore project-based learning, peer code reviews, and continuous career support.',
       bookImages: [
         'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=500&fit=crop',
         'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=500&fit=crop',
@@ -115,6 +120,7 @@ function HeroSlider() {
 
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  
   const timeoutRef = useRef(null);
   const delay = 4000; // 4 seconds per slide
 
@@ -147,6 +153,8 @@ function HeroSlider() {
     setCurrent((c) => (c - 1 + slides.length) % slides.length);
   };
 
+  
+
   return (
     <section
       className="hero-slider"
@@ -172,8 +180,7 @@ function HeroSlider() {
                     <span>World Class Education. Engineered for Outcome</span>
                   </div>
                   <h1 className="hero-title">
-                    {s.title}<br />
-                    <span className="title-highlight">{s.highlight}</span>
+                    {s.title} <span className="title-highlight">{s.highlight}</span>
                   </h1>
                   <p className="hero-subtitle">{s.subtitle}</p>
                   <div className="hero-ctas">
@@ -281,6 +288,7 @@ function HeroSlider() {
                   </h2>
                   <h3 className="video-subtitle">{s.title}</h3>
                   <p className="video-description">{s.description}</p>
+                  {s.extra && <p className="video-description-extended">{s.extra}</p>}
                   <ul className="video-highlights">
                     {s.highlights.map((highlight, i) => (
                       <li key={i} className="highlight-item">{highlight}</li>
@@ -326,12 +334,71 @@ function HeroSlider() {
                   <div className="boxes-grid">
                     <div className="boxes-left">
                       <div className="section-badge light">OUR STRENGTHS</div>
-                      <h2 className="boxes-main-title">{s.title}</h2>
+                      {(() => {
+                        const title = s.title || '';
+                        const highlightKey = 'BraynupAI';
+                        if (title.includes(highlightKey)) {
+                          const parts = title.split(highlightKey);
+                          return (
+                            <h2 className="boxes-main-title">{parts[0]}<span className="title-highlight-orange">{highlightKey}</span>{parts[1]}</h2>
+                          );
+                        }
+                        // fallback: highlight the last word
+                        const words = title.split(' ');
+                        const last = words.pop();
+                        return (
+                          <h2 className="boxes-main-title">{words.join(' ')} {last && <span className="title-highlight-orange">{last}</span>}</h2>
+                        );
+                      })()}
                       <h3 className="boxes-main-subtitle">{s.subtitle}</h3>
-                      <p className="boxes-main-description">{s.fullDescription}</p>
-                      {s.extra && <p className="boxes-main-description boxes-extra">{s.extra}</p>}
+                      <p className="boxes-main-description">{
+                        // Combine all pieces of copy into a single paragraph to remove
+                        // large gaps between separate <p> tags and improve readability.
+                        `${s.fullDescription}${s.extra ? ' ' + s.extra : ''} We also provide personalized mentorship, mock interviews, portfolio reviews, and continuous career support to ensure you graduate job-ready. Our alumni network and industry partners help accelerate hiring and long-term career growth.`
+                      }</p>
+                      {/* Additional bottom filler text to occupy remaining vertical space */}
+                      <p className="boxes-main-description boxes-bottom">{
+                        `Join our community to access capstone projects, industry-mentored assignments, mock interviews with hiring partners, resume and portfolio reviews, and continuous career coaching. Become job-ready faster with hands-on experience and mentor feedback.`
+                      }</p>
+                      {/* Extra stats + CTA added to remove remaining empty space in the left column */}
+                      <div className="boxes-bottom-cta">
+                        <div className="boxes-stats-row">
+                          <div className="boxes-stat">
+                            <div className="boxes-stat-icon">🧾</div>
+                            <div className="boxes-stat-content">
+                              <div className="boxes-stat-value">Job-ready Portfolios</div>
+                              <div className="boxes-stat-label">Capstone projects & demos</div>
+                              <div className="boxes-stat-desc">Build production-ready projects and a showcase portfolio that impresses recruiters.</div>
+                            </div>
+                          </div>
+                          <div className="boxes-stat">
+                            <div className="boxes-stat-icon">🎯</div>
+                            <div className="boxes-stat-content">
+                              <div className="boxes-stat-value">Mock Interviews</div>
+                              <div className="boxes-stat-label">Practice with hiring partners</div>
+                              <div className="boxes-stat-desc">Get repeated mock interviews with feedback from industry interviewers to boost confidence.</div>
+                            </div>
+                          </div>
+                          <div className="boxes-stat">
+                            <div className="boxes-stat-icon">🤝</div>
+                            <div className="boxes-stat-content">
+                              <div className="boxes-stat-value">Alumni Network</div>
+                              <div className="boxes-stat-label">Industry connections & support</div>
+                              <div className="boxes-stat-desc">Join an active alumni community for referrals, mentorship, and job leads.</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="boxes-cta-row">
+                          <button className="cta-btn cta-primary">Join Our Community <span className="arrow">→</span></button>
+                          <button className="cta-btn cta-secondary">Request Syllabus</button>
+                        </div>
+                      </div>
                     </div>
                     <div className="boxes-right">
+                      <div className="boxes-image-wrapper">
+                        <img src={aie} alt="BraynupAI visual" className="boxes-image" />
+                      </div>
+                      {/* keep the features below the image for smaller screens if needed */}
                       <ul className="boxes-features">
                         {s.items && s.items.map((it, i) => (
                           <li key={i} className="boxes-feature-item">{it}</li>
@@ -352,7 +419,18 @@ function HeroSlider() {
                 backgroundRepeat: 'no-repeat'
               }}>
                 {/* Background Image */}
-                <div className="video-bg-overlay">
+                <div
+                  className="video-bg-overlay"
+                  // Expand the dark overlay for slide 5 to match expanded features width
+                  style={{
+                    maxWidth: 'none',
+                    width: 'calc(100% + 160px)',
+                    marginLeft: '-80px',
+                    marginRight: '-80px',
+                    paddingLeft: '40px',
+                    paddingRight: '40px'
+                  }}
+                >
                   <div className="video-bg-row">
                     <div className="video-bg-left">
                       <div className="video-bg-content">
@@ -360,11 +438,27 @@ function HeroSlider() {
                         <h2 className="video-bg-title">{s.title}</h2>
                         <h3 className="video-bg-subtitle">{s.subtitle}</h3>
 
-                        {/* Features List */}
+                        {/* Features List (slide-5 only): expand horizontally to cover extra left/right gaps */}
                         {s.features && (
-                          <div className="features-list">
+                          <div
+                            className="features-list"
+                            // Inline styles applied only for slide 5 so other slides remain unaffected
+                            style={{
+                              maxWidth: 'none',
+                              width: 'calc(100% + 160px)',
+                              marginLeft: '-80px',
+                              marginRight: '-80px',
+                              paddingLeft: '40px',
+                              paddingRight: '40px'
+                            }}
+                          >
                             {s.features.map((feature, i) => (
-                              <div key={i} className="feature-item">
+                              <div
+                                key={i}
+                                className="feature-item"
+                                // ensure each pill fills the available (expanded) width
+                                style={{ width: '100%', boxSizing: 'border-box' }}
+                              >
                                 <span className="feature-icon">{feature.icon}</span>
                                 <span className="feature-text">{feature.text}</span>
                               </div>
@@ -390,26 +484,28 @@ function HeroSlider() {
                         </div>
                       </div>
                     </div>
-                    <div className="video-bg-right">
-                      {/* Right-side visual: use features summary or image */}
-                      <div className="side-info-card">
-                        <h4>Why Join</h4>
-                        <ul>
-                          {s.features && s.features.slice(0,4).map((f, i) => (
-                            <li key={i}><span className="feature-icon small">{f.icon}</span> {f.text}</li>
-                          ))}
-                        </ul>
-                        <div className="info-visual" style={{backgroundImage: `url(${s.backgroundImage})`}} />
-                      </div>
-                    </div>
+                    {/* right column removed per request (side-info-card) */}
                   </div>
                 </div>
               </div>
             )}
           </div>
         ))}
+        {/* Navigation controls: previous / dots / next centered below slides */}
+        <div className="slider-nav" role="navigation" aria-label="Slider navigation">
+          <div className="slider-dots" role="tablist" aria-label="Slide navigation">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                className={`dot ${i === current ? 'active' : ''}`}
+                onClick={() => goToSlide(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                aria-pressed={i === current}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-
       {/* Navigation Controls - Hidden for auto-play */}
       {/* <div className="slider-controls">
         <button

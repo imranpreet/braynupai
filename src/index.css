@@ -13,6 +13,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Heading font: use a classic serif display for titles across the site */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap');
+
+/* Apply display serif to all headings so they match the provided screenshots */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: #111111; /* default heading color (black) */
+  font-weight: 700;
+  margin: 0;
+}
+
+h1 { font-size: 3.8rem; line-height: 1.05; }
+h2 { font-size: 2.8rem; line-height: 1.08; }
+h3 { font-size: 1.8rem; }
+
 a {
   font-weight: 500;
   color: #646cff;
