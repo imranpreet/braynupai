@@ -1247,47 +1247,25 @@ function Home() {
       {/* About Section */}
       <section className="about-section">
         <div className="container">
-          <div className="about-layout">
-            <div className="about-content">
-              <div className="section-label">ABOUT US</div>
-              <h2 className="section-title">
-                Empowering <span className="highlight-text">50,000+ Learners</span><br />
-                Across 120+ Countries
-              </h2>
-              <p className="about-description">
-                BraynupAI is a revolutionary AI-based IT training platform designed to deliver 
-                future-ready education. We specialize in cutting-edge programs that transform careers 
-                through innovative AI-powered learning experiences.
-              </p>
-              <div className="about-stats">
-                <div className="stat-item">
-                  <div className="stat-number">50K+</div>
-                  <div className="stat-label">Active Students</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-number">95%</div>
-                  <div className="stat-label">Placement Rate</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-number">120+</div>
-                  <div className="stat-label">Countries</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-number">150%</div>
-                  <div className="stat-label">Avg. Salary Hike</div>
-                </div>
-              </div>
+          <div className="about-layout about-layout--split">
+            <div className="about-content about-content--left">
+              <div className="section-label">EDUCATION EXCELLENCE</div>
+              <h2 className="section-title">Transforming Lives Through AI Education</h2>
+              <p className="about-lead">Education is a core pillar at BraynupAI, and one that we are constantly reviewing, innovating, and revolutionizing.</p>
+              <p className="about-description">We are working towards building a more knowledgeable tomorrow, every day, and are committed to making AI education accessible to everyone, everywhere. We've pioneered an innovative approach that combines cutting-edge technology with personalized learning experiences, including expert-led courses, hands-on projects, and the implementation of AI-powered adaptive learning that adjusts to each student's pace and style.</p>
+              <p className="about-description">Our platform leverages machine learning algorithms to create personalized learning paths, real-time feedback systems, and predictive analytics that identify areas where students need additional support. We believe that education is more than just consuming content—it's about building practical skills, solving real-world problems, and preparing for the careers of tomorrow.</p>
+              <p className="about-description">While we are always a work in progress, you can trust us when we say that our commitment to delivering world-class AI education is more ambitious than simply meeting industry standards—we aim to set them.</p>
+              <button className="learn-more-btn">LEARN MORE</button>
+
+              {/* features removed per request */}
+
             </div>
-            <div className="about-video">
-              <div className="video-wrapper">
-                <iframe
-                  src="https://www.youtube.com/embed/JMUxmLyrhSk"
-                  title="BraynupAI Education"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-                <div className="video-overlay"></div>
+
+            <div className="about-media about-content--right">
+              <div className="media-stack single">
+                <div className="media-tile main-tile single-tile">
+                  <img src="/src/kudiiiiiiii.webp" alt="showcase" />
+                </div>
               </div>
             </div>
           </div>

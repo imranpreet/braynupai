@@ -1991,7 +1991,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 }
 
 .feature-item:hover .feature-text {
-  color: white;cirlcles
+  color: white;
   transform: translateX(5px);
 }
 
